@@ -1,0 +1,39 @@
+.box {
+    background-color: #161B22;
+    border-radius: 10px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.linha-box {
+    border: 1px solid #0D1117;
+    margin: 10px 40px;
+    border-radius: 10px;
+}
+
+.icone-circulo {
+    background-color: #0D1117;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.8em;
+    margin-right: 10em;
+}
+
+.titulo-prioridade {
+    color: #00D8FF;
+    padding-top: 30px;
+    font-weight: bold;
+}
+
+.div-botao-adicionar {
+    margin-top: 3em;
+}
+
+.div-botao-deletar {
+    padding-top: 2em;
+}
