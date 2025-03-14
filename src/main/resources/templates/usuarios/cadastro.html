@@ -15,7 +15,7 @@
             <div class="card">
                 <div class="card-content">
                     <span class="card-title center">Cadastro</span>
-                    <form th:action="@{usuarios/cadastro}" th:object="${usuarioDTO}" method="post">
+                    <form th:action="@{cadastro}" th:object="${usuarioDTO}" method="post">
                         <div class="input-field">
                             <input th:field="*{email}" type="email" id="email" required>
                             <label for="email">E-mail</label>

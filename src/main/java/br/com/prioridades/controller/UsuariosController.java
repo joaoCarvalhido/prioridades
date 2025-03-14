@@ -24,11 +24,14 @@ public class UsuariosController {
         return mv;
     }
 
-    @PostMapping("/login")
-    public ModelAndView logarUsuario(@ModelAttribute UsuarioDTO usuarioDTO) {
-        // this.usuarioService.salvar(usuarioDTO);
+    /*
+    @PostMapping("/processa-login")
+    public ModelAndView processaLogin(@ModelAttribute UsuarioDTO usuarioDTO) throws IllegalAccessException {
+        UsuarioDTO usuarioLogado = this.usuarioService.buscarPorEmail(usuarioDTO.getEmail());
+        this.usuarioService.validaSenha(usuarioLogado, usuarioDTO);
         return new ModelAndView("redirect:/prioridades/home");
     }
+    */
 
     @GetMapping("/cadastro")
     public ModelAndView cadastro() {
