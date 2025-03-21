@@ -3,16 +3,16 @@
       xmlns:th="http://www.thymeleaf.org">
 
     <!-- Modal Structure -->
-    <div th:fragment="modalCadastro">
-        <div id="modal-cadastro" class="modal">
+    <div th:fragment="modalEdicao">
+        <div id="modal-edicao" class="modal">
             <div class="modal-content">
-                <h5>Cadastro de Prioridade</h5>
+                <h5>Edição de Prioridade</h5>
                 <br>
 
-                <!-- formulario cadastro de prioridade -->
+                <!-- formulario edicao de prioridade -->
                 <div class="container">
                     <div class="section">
-                        <form th:action="@{/prioridades}" th:object="${prioridadeDTO}" method="post">
+                        <form th:action="@{/prioridades/1}" th:object="${prioridadeDTO}" method="put">
                             <!--   form Section   -->
                             <div class="row">
                                 <div class="col s12">
@@ -38,11 +38,11 @@
 
                                 <div class="col s12">
                                     <div class="input-field col s12">
-                                        <select class="icons" th:field="*{icone}">
-                                            <option value="" disabled selected>Selecione</option>
-                                            <option value="home" data-icon="https://fonts.gstatic.com/s/i/materialicons/home/v10/24px.svg">Home</option>
-                                            <option value="person" data-icon="https://fonts.gstatic.com/s/i/materialicons/person/v10/24px.svg">Perfil</option>
-                                            <option value="settings" data-icon="https://fonts.gstatic.com/s/i/materialicons/settings/v10/24px.svg">Configurações</option>
+                                        <select class="icons">
+                                            <option value="1" selected data-icon="https://fonts.gstatic.com/s/i/materialicons/home/v10/24px.svg">Home</option>
+                                            <option value="1" data-icon="https://fonts.gstatic.com/s/i/materialicons/home/v10/24px.svg">Home</option>
+                                            <option value="2" data-icon="https://fonts.gstatic.com/s/i/materialicons/person/v10/24px.svg">Perfil</option>
+                                            <option value="3" data-icon="https://fonts.gstatic.com/s/i/materialicons/settings/v10/24px.svg">Configurações</option>
                                         </select>
                                         <label>Icone</label>
                                     </div>

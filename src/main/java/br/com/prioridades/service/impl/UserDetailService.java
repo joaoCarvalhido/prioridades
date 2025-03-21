@@ -1,4 +1,4 @@
-package br.com.prioridades.service.impl;
+/*package br.com.prioridades.service.impl;
 
 import br.com.prioridades.DTO.UsuarioDTO;
 import br.com.prioridades.service.UsuarioService;
@@ -30,3 +30,4 @@ public class UserDetailService implements UserDetailsService {
         return new User(usuario.getEmail(), usuario.getSenha(), new ArrayList<>());
     }
 }
+*/

@@ -1,6 +1,6 @@
 package br.com.prioridades.config;
 
-import br.com.prioridades.service.impl.UserDetailService;
+import br.com.prioridades.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,22 +15,24 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Autowired
-    private UserDetailService userDetailService;
+    private UsuarioService usuarioService;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/usuarios/login", "/usuarios/cadastro",
+                                "/prioridades/exemplo",
                                 "/css/**", "/js/**", "/img/**",
-                                "/materialize/**", "/default/**")
+                                "/materialize/**", "/default/**",
+                                "/prioridade/**")
                         .permitAll()
                         .anyRequest().authenticated())
 
         .formLogin(form -> form
                 .loginPage("/usuarios/login")
                 .loginProcessingUrl("/usuarios/processa-login")
-                .defaultSuccessUrl("/prioridades/home", true)
+                .defaultSuccessUrl("/prioridades", true)
                 .failureForwardUrl("/usuarios/login?error=true")
                 .permitAll());
 
