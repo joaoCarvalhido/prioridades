@@ -6,43 +6,46 @@
     <div th:fragment="modalEdicao">
         <div id="modal-edicao" class="modal">
             <div class="modal-content">
-                <h5>Edição de Prioridade</h5>
+                <h5>Editando Prioridade: <span id="prioridadeNome"></span></h5>
                 <br>
 
                 <!-- formulario edicao de prioridade -->
                 <div class="container">
                     <div class="section">
-                        <form th:action="@{/prioridades/1}" th:object="${prioridadeDTO}" method="put">
+                        <form id="formEdicao" method="post">
                             <!--   form Section   -->
                             <div class="row">
+                                <input type="hidden" id="prioridadeId" name="id">
+                                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
                                 <div class="col s12">
                                     <div class="input-field col s12">
-                                        <input th:field="*{nome}" placeholder="Reserva de Emergência" id="nome" type="text" class="validate">
-                                        <label for="nome">Nome:</label>
+                                        <input id="nome-edicao" type="text" name="nome">
+                                        <label for="nome-edicao">Nome:</label>
                                     </div>
                                 </div>
 
                                 <div class="col s12">
                                     <div class="input-field col s12">
-                                        <input th:field="*{valorObjetivo}" placeholder="100" id="valor-objetivo" type="text" class="validate">
-                                        <label for="valor-objetivo">Valor objetivo:</label>
+                                        <input id="valor-objetivo-edicao" type="text" name="valorObjetivo">
+                                        <label for="valor-objetivo-edicao">Valor objetivo:</label>
                                     </div>
                                 </div>
 
                                 <div class="col s12">
                                     <div class="input-field col s12">
-                                        <input th:field="*{valorInvestido}" placeholder="10" id="valor-investido" type="text" class="validate">
-                                        <label for="valor-investido">Valor já investido:</label>
+                                        <input id="valor-investido-edicao" type="text" name="valorInvestido">
+                                        <label for="valor-investido-edicao">Valor já investido:</label>
                                     </div>
                                 </div>
 
                                 <div class="col s12">
                                     <div class="input-field col s12">
-                                        <select class="icons">
-                                            <option value="1" selected data-icon="https://fonts.gstatic.com/s/i/materialicons/home/v10/24px.svg">Home</option>
-                                            <option value="1" data-icon="https://fonts.gstatic.com/s/i/materialicons/home/v10/24px.svg">Home</option>
-                                            <option value="2" data-icon="https://fonts.gstatic.com/s/i/materialicons/person/v10/24px.svg">Perfil</option>
-                                            <option value="3" data-icon="https://fonts.gstatic.com/s/i/materialicons/settings/v10/24px.svg">Configurações</option>
+                                        <select class="icons" id="icone-edicao" name="icone">
+                                            <option value="home" selected data-icon="https://fonts.gstatic.com/s/i/materialicons/home/v10/24px.svg">Home</option>
+                                            <option value="person" data-icon="https://fonts.gstatic.com/s/i/materialicons/home/v10/24px.svg">Home</option>
+                                            <option value="settings" data-icon="https://fonts.gstatic.com/s/i/materialicons/person/v10/24px.svg">Perfil</option>
+                                            <option value="money" data-icon="https://fonts.gstatic.com/s/i/materialicons/settings/v10/24px.svg">Configurações</option>
                                         </select>
                                         <label>Icone</label>
                                     </div>

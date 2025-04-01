@@ -29,7 +29,10 @@
                     </div>
                 </div>
 
-                <div class="row linha-box" th:each="topPrioridade : ${listasPrioridades.topPrioridades}">
+                <div class="row linha-box"
+                     th:each="topPrioridade : ${listasPrioridades.topPrioridades}"
+                     th:attr="onclick=|abrirModalEdicao('${topPrioridade.idPrioridade}', '${topPrioridade.nome}',
+                        '${topPrioridade.valorObjetivo}', '${topPrioridade.valorInvestido}', '${topPrioridade.icone}')|">
                     <div class="col s2">
                         <div class="icone-circulo">
                             <i class="material-icons" th:text="${topPrioridade.icone}"></i>
@@ -47,7 +50,9 @@
 
                     <div class="col s2">
                         <div class="div-botao-deletar">
-                            <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
+                            <a class="btn-floating btn-small waves-effect waves-light red" onclick="event.stopPropagation();">
+                                <i class="material-icons">delete</i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -101,6 +106,7 @@
 
 <!-- Importando o modal -->
 <div th:replace="prioridades/modal-cadastro :: modalCadastro"></div>
+<div th:replace="prioridades/modal-edicao :: modalEdicao"></div>
 
 </body>
 
@@ -108,4 +114,5 @@
 <script th:src="@{https://code.jquery.com/jquery-2.1.1.min.js}"></script>
     <script th:src="@{/materialize/js/materialize.js}"></script>
 <script th:src="@{/default/js/scripts.js}"></script>
+<script th:src="@{/prioridade/js/modal-edicao.js}"></script>
 </html>

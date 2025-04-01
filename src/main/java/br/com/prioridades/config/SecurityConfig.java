@@ -23,11 +23,10 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/usuarios/login", "/usuarios/cadastro",
                                 "/prioridades/exemplo",
-                                "/css/**", "/js/**", "/img/**",
-                                "/materialize/**", "/default/**",
-                                "/prioridade/**")
-                        .permitAll()
-                        .anyRequest().authenticated())
+                                "/default/css/**", "/default/js/**",
+                                "/materialize/css/**", "/materialize/js/**",
+                                "/prioridade/css/**", "/prioridade/js/**")
+                        .permitAll().anyRequest().authenticated())
 
         .formLogin(form -> form
                 .loginPage("/usuarios/login")

@@ -6,5 +6,7 @@ import br.com.prioridades.DTO.PrioridadeDTO;
 public interface PrioridadeService {
     ListasPrioridadesDTO buscarListas();
     PrioridadeDTO buscar(Long idPrioridade);
-    PrioridadeDTO salvar(PrioridadeDTO prioridadeDTO);
+    void salvar(PrioridadeDTO prioridadeDTO);
+    void editar(PrioridadeDTO prioridadeDTO);
+    void deletar(Long idPrioridade);
 }

@@ -39,14 +39,22 @@ public class PrioridadeServiceImpl implements PrioridadeService {
     }
 
     @Override
-    public PrioridadeDTO salvar(PrioridadeDTO prioridadeDTO) {
+    public void salvar(PrioridadeDTO prioridadeDTO) {
         UsuarioDTO usuarioLogado = this.usuarioService.buscarUsuarioLogado();
         prioridadeDTO.setUsuarioDTO(usuarioLogado);
 
         Prioridade prioridade = prioridadeDTO.converteParaPrioridade();
-        prioridade = this.prioridadeRepository.save(prioridade);
+        this.prioridadeRepository.save(prioridade);
+    }
 
-        return new PrioridadeDTO(prioridade);
+    @Override
+    public void editar(PrioridadeDTO prioridadeDTO) {
+        this.salvar(prioridadeDTO);
+    }
+
+    @Override
+    public void deletar(Long idPrioridade) {
+        this.prioridadeRepository.deleteById(idPrioridade);
     }
 
     private List<PrioridadeDTO> buscarTodas(UsuarioDTO usuarioDTO) {

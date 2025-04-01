@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.math.BigDecimal;
+
 @Controller
 @RequestMapping("/prioridades")
 @RequiredArgsConstructor
@@ -21,7 +23,7 @@ public class PrioridadesController {
 
         ModelAndView mv = new ModelAndView("prioridades/prioridades");
         mv.addObject("listasPrioridades", listasPrioridades);
-        mv.addObject("prioridadeDTO", new PrioridadeDTO());
+        mv.addObject("cadastroPrioridadeDTO", new PrioridadeDTO());
         return mv;
     }
 
@@ -34,20 +36,15 @@ public class PrioridadesController {
 
     @DeleteMapping("/{idPrioridade}")
     public ModelAndView deletar(@PathVariable long idPrioridade) {
+        this.prioridadeService.deletar(idPrioridade);
         return new ModelAndView("redirect:/prioridades");
     }
 
-    @GetMapping("/{idPrioridade}")
-    public ModelAndView viewEditar(@PathVariable Long idPrioridade, @ModelAttribute PrioridadeDTO prioridadeDTO) {
-        ModelAndView mv = new ModelAndView("prioridades/home");
-        mv.addObject("cadastroPrioridadeDTO", new PrioridadeDTO());
-        return mv;
-    }
-
-    @PutMapping("/{idPrioridade}")
-    public ModelAndView editar(@ModelAttribute PrioridadeDTO prioridadeDTO) {
-        //this.prioridadeService.editar(prioridadeDTO);
-        return new ModelAndView("redirect:/prioridades/home");
+    @PostMapping("/edicao/{idPrioridade}")
+    public ModelAndView editar(@PathVariable Long idPrioridade, @ModelAttribute PrioridadeDTO prioridadeDTO) {
+        prioridadeDTO.setIdPrioridade(idPrioridade);
+        this.prioridadeService.editar(prioridadeDTO);
+        return new ModelAndView("redirect:/prioridades");
     }
 
     @GetMapping("/exemplo")
