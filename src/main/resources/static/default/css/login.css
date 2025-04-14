@@ -1,0 +1,62 @@
+/* Tema escuro */
+body.dark-theme {
+    background-color: #0D1117;
+    color: #C9D1D9;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container centralizado */
+.login-container {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+/* Card com fundo escuro e borda sutil */
+.login-card {
+    background-color: #161B22;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+
+/* Campos input com texto claro */
+.login-card input {
+    color: #C9D1D9;
+}
+
+.login-card .input-field input:focus + label {
+    color: #58A6FF !important;
+}
+
+.login-card .input-field input:focus {
+    border-bottom: 1px solid #58A6FF !important;
+    box-shadow: 0 1px 0 0 #58A6FF !important;
+}
+
+.login-card .card-title {
+    color: #C9D1D9;
+    margin-bottom: 30px;
+}
+
+/* Botão estilizado */
+.login-btn {
+    background-color: #238636;
+    border-radius: 25px;
+    padding: 0 30px;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #2EA043;
+}
+
+/* Link de cadastro */
+.card-action a {
+    color: #58A6FF;
+}
+
+.card-action a:hover {
+    text-decoration: underline;
+}
