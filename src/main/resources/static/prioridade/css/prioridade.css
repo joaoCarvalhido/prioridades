@@ -43,3 +43,10 @@
 .div-botao-deletar {
     padding-top: 2em;
 }
+
+#modal-confirma-delecao {
+    width: 30%;
+    height 30%; !important
+    color: #C9D1D9; !important;
+    background-color: #161B22; !important;
+}

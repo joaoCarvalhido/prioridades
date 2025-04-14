@@ -34,7 +34,7 @@ public class PrioridadesController {
         return new ModelAndView("redirect:/prioridades");
     }
 
-    @DeleteMapping("/{idPrioridade}")
+    @PostMapping("/delecao/{idPrioridade}")
     public ModelAndView deletar(@PathVariable long idPrioridade) {
         this.prioridadeService.deletar(idPrioridade);
         return new ModelAndView("redirect:/prioridades");

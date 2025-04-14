@@ -30,6 +30,9 @@ public class Prioridade {
     @Column
     private boolean ativo = true;
 
+    @Column
+    private int ordem;
+
     @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;

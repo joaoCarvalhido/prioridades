@@ -50,7 +50,8 @@
 
                     <div class="col s2">
                         <div class="div-botao-deletar">
-                            <a class="btn-floating btn-small waves-effect waves-light red" onclick="event.stopPropagation();">
+                            <a href="#modal-confirma-delecao" class="btn-floating btn-small waves-effect waves-light red btn modal-trigger"
+                               th:attr="onclick=|abrirModalConfirmacaoDelecao('${topPrioridade.idPrioridade}'); event.stopPropagation()|">
                                 <i class="material-icons">delete</i>
                             </a>
                         </div>
@@ -76,7 +77,10 @@
                     </div>
                 </div>
 
-                <div class="row linha-box" th:each="outraPrioridade : ${listasPrioridades.outrasPrioridades}">
+                <div class="row linha-box"
+                     th:each="outraPrioridade : ${listasPrioridades.outrasPrioridades}"
+                     th:attr="onclick=|abrirModalEdicao('${outraPrioridade.idPrioridade}', '${outraPrioridade.nome}',
+                        '${outraPrioridade.valorObjetivo}', '${outraPrioridade.valorInvestido}', '${outraPrioridade.icone}')|">
                     <div class="col s2">
                         <div class="icone-circulo">
                             <i class="material-icons" th:text="${outraPrioridade.icone}"></i>
@@ -94,7 +98,10 @@
 
                     <div class="col s2">
                         <div class="div-botao-deletar">
-                            <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
+                            <a href="#modal-confirma-delecao" class="btn-floating btn-small waves-effect waves-light red btn modal-trigger"
+                               th:attr="onclick=|abrirModalConfirmacaoDelecao('${outraPrioridade.idPrioridade}'); event.stopPropagation()|">
+                                <i class="material-icons">delete</i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -107,12 +114,14 @@
 <!-- Importando o modal -->
 <div th:replace="prioridades/modal-cadastro :: modalCadastro"></div>
 <div th:replace="prioridades/modal-edicao :: modalEdicao"></div>
+<div th:replace="prioridades/modal-confirma-delecao :: modalConfirmaDelecao"></div>
 
 </body>
 
 <!--  Scripts-->
 <script th:src="@{https://code.jquery.com/jquery-2.1.1.min.js}"></script>
-    <script th:src="@{/materialize/js/materialize.js}"></script>
+<script th:src="@{/materialize/js/materialize.js}"></script>
 <script th:src="@{/default/js/scripts.js}"></script>
 <script th:src="@{/prioridade/js/modal-edicao.js}"></script>
+<script th:src="@{/prioridade/js/modal-delecao.js}"></script>
 </html>
