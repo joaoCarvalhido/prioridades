@@ -4,6 +4,7 @@ import br.com.prioridades.DTO.ListasPrioridadesDTO;
 import br.com.prioridades.DTO.PrioridadeDTO;
 import br.com.prioridades.DTO.UsuarioDTO;
 import br.com.prioridades.domain.Prioridade;
+import br.com.prioridades.domain.exception.ListaTopPrioridadeCompleto;
 import br.com.prioridades.repository.PrioridadeRepository;
 import br.com.prioridades.service.PrioridadeService;
 import br.com.prioridades.service.UsuarioService;
@@ -42,9 +43,22 @@ public class PrioridadeServiceImpl implements PrioridadeService {
     public void salvar(PrioridadeDTO prioridadeDTO) {
         UsuarioDTO usuarioLogado = this.usuarioService.buscarUsuarioLogado();
         prioridadeDTO.setUsuarioDTO(usuarioLogado);
-
+        fluxoOrdemPrioridade(prioridadeDTO);
         Prioridade prioridade = prioridadeDTO.converteParaPrioridade();
         this.prioridadeRepository.save(prioridade);
+    }
+
+    private void fluxoOrdemPrioridade(PrioridadeDTO prioridadeDTO) {
+        ListasPrioridadesDTO listasPrioridadesDTO = this.buscarListas();
+        int ultimaOrdemPrioridade;
+        if(prioridadeDTO.isTopPrioridade()) {
+            if(listasPrioridadesDTO.isTopPrioridadeCompleto())
+                throw new ListaTopPrioridadeCompleto();
+            ultimaOrdemPrioridade = listasPrioridadesDTO.getUltimaOrdemTopPrioridade();
+        } else {
+            ultimaOrdemPrioridade = listasPrioridadesDTO.getUltimaOrdemOutraPrioridade();
+        }
+        prioridadeDTO.setOrdem(++ultimaOrdemPrioridade);
     }
 
     @Override

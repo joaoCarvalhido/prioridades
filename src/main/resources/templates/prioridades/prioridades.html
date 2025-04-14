@@ -25,7 +25,8 @@
                         <h5 class="titulo-prioridade">Top 3 Prioridades</h5>
                     </div>
                     <div class="col s2 div-botao-adicionar">
-                        <a href="#modal-cadastro" class="btn-floating btn waves-effect waves-light modal-trigger"><i class="material-icons">add</i></a>
+                        <a href="#modal-cadastro" class="btn-floating btn waves-effect waves-light modal-trigger" onclick="setIsTopPrioridade(true);">
+                            <i class="material-icons">add</i></a>
                     </div>
                 </div>
 
@@ -73,7 +74,8 @@
                         <h5 class="titulo-prioridade">Outras Prioridades</h5>
                     </div>
                     <div class="col s2 div-botao-adicionar">
-                        <a class="btn-floating btn waves-effect waves-light"><i class="material-icons">add</i></a>
+                        <a href="#modal-cadastro" class="btn-floating btn waves-effect waves-light modal-trigger" onclick="setIsTopPrioridade(false);">
+                            <i class="material-icons">add</i></a>
                     </div>
                 </div>
 
@@ -124,4 +126,5 @@
 <script th:src="@{/default/js/scripts.js}"></script>
 <script th:src="@{/prioridade/js/modal-edicao.js}"></script>
 <script th:src="@{/prioridade/js/modal-delecao.js}"></script>
+<script th:src="@{/prioridade/js/modal-cadastro.js}"></script>
 </html>

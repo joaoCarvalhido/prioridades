@@ -15,7 +15,9 @@ public class PrioridadeDTO {
     private BigDecimal valorObjetivo;
     private BigDecimal valorInvestido;
     private String icone;
+    private int ordem;
     private UsuarioDTO usuarioDTO;
+    private boolean topPrioridade;
 
     public PrioridadeDTO(Prioridade prioridade) {
         this.idPrioridade = prioridade.getIdPrioridade();
@@ -23,6 +25,7 @@ public class PrioridadeDTO {
         this.valorObjetivo = prioridade.getValorObjetivo();
         this.valorInvestido = prioridade.getValorInvestido();
         this.icone = prioridade.getIcone();
+        this.ordem = prioridade.getOrdem();
         this.usuarioDTO = new UsuarioDTO(prioridade.getUsuario());
     }
 
@@ -33,9 +36,9 @@ public class PrioridadeDTO {
         prioridade.setValorObjetivo(this.valorObjetivo);
         prioridade.setValorInvestido(this.valorInvestido);
         prioridade.setIcone(this.icone);
+        prioridade.setOrdem(this.ordem);
         if(Objects.nonNull(this.usuarioDTO))
             prioridade.setUsuario(this.usuarioDTO.converteParaUsuario());
-
         return prioridade;
     }
 
