@@ -50,3 +50,24 @@
     color: #C9D1D9; !important;
     background-color: #161B22; !important;
 }
+
+.progress {
+  height: 8px;
+  background-color: #0d1117; /* tom bem escuro pra combinar com #161B22 */
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 10px 0;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.6);
+}
+
+.determinate.progresso {
+  background: linear-gradient(90deg, #00D8AA, #00D8FF;); /* efeito gradiente moderno */
+  height: 100%;
+  border-radius: 14px 0 0 14px; /* arredonda só o lado esquerdo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #161B22;
+  font-weight: bold;
+  font-size: 10px;
+}

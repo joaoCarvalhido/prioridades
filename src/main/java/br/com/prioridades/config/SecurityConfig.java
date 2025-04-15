@@ -26,14 +26,21 @@ public class SecurityConfig {
                                 "/default/css/**", "/default/js/**",
                                 "/materialize/css/**", "/materialize/js/**",
                                 "/prioridade/css/**", "/prioridade/js/**")
-                        .permitAll().anyRequest().authenticated())
+                        .permitAll()
+                        .anyRequest().authenticated())
 
         .formLogin(form -> form
                 .loginPage("/usuarios/login")
                 .loginProcessingUrl("/usuarios/processa-login")
                 .defaultSuccessUrl("/prioridades", true)
                 .failureForwardUrl("/usuarios/login?error=true")
-                .permitAll());
+                .permitAll())
+
+        .logout(logout -> logout
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/usuarios/login?logout=true")
+                .permitAll()
+        );
 
         return http.build();
     }

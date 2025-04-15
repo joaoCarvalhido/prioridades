@@ -43,9 +43,7 @@
                     <div class="col s8">
                         <p th:text="${topPrioridade.nome}"></p>
                         <div class="progress">
-                            <div class="determinate progresso" style="width: 80%">
-                                <span>90%</span>
-                            </div>
+                            <div class="determinate progresso" th:style="'width:' + ${topPrioridade.progresso} + '%'"></div>
                         </div>
                     </div>
 
@@ -92,9 +90,7 @@
                     <div class="col s8">
                         <p th:text="${outraPrioridade.nome}"></p>
                         <div class="progress">
-                            <div class="determinate progresso" style="width: 80%">
-                                <span>90%</span>
-                            </div>
+                            <div class="determinate progresso" th:style="'width:' + ${outraPrioridade.progresso} + '%'"></div>
                         </div>
                     </div>
 

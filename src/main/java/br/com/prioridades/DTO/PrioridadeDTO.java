@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Objects;
 
 @Data
@@ -18,6 +19,7 @@ public class PrioridadeDTO {
     private int ordem;
     private UsuarioDTO usuarioDTO;
     private boolean topPrioridade;
+    private BigDecimal progresso;
 
     public PrioridadeDTO(Prioridade prioridade) {
         this.idPrioridade = prioridade.getIdPrioridade();
@@ -27,6 +29,14 @@ public class PrioridadeDTO {
         this.icone = prioridade.getIcone();
         this.ordem = prioridade.getOrdem();
         this.usuarioDTO = new UsuarioDTO(prioridade.getUsuario());
+        this.progresso = calcularProgresso(prioridade.getValorObjetivo(), prioridade.getValorInvestido());
+    }
+
+    private BigDecimal calcularProgresso(BigDecimal valorObjetivo, BigDecimal valorInvestido) {
+        if(Objects.nonNull(valorObjetivo) && Objects.nonNull(valorInvestido))
+            return valorInvestido.divide(valorObjetivo, RoundingMode.FLOOR)
+                    .multiply(new BigDecimal(100));
+        return BigDecimal.ZERO;
     }
 
     public Prioridade converteParaPrioridade() {
