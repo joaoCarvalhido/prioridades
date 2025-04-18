@@ -6,7 +6,7 @@
     <div th:fragment="modalCadastro">
         <div id="modal-cadastro" class="modal modal-prioridade">
             <div class="modal-content">
-                <h5>Cadastro de Prioridade</h5>
+                <h5 class="titulo-modal">Cadastro de Prioridade</h5>
                 <br>
 
                 <!-- formulario cadastro de prioridade -->
@@ -39,7 +39,7 @@
 
                                 <div class="col s12">
                                     <div class="input-field col s12">
-                                        <select class="icons" th:field="*{icone}">
+                                        <select th:field="*{icone}">
                                             <option value="" disabled selected>Selecione</option>
                                             <option value="home" data-icon="https://fonts.gstatic.com/s/i/materialicons/home/v10/24px.svg">Home</option>
                                             <option value="person" data-icon="https://fonts.gstatic.com/s/i/materialicons/person/v10/24px.svg">Perfil</option>
@@ -53,10 +53,15 @@
 
                             <div class="row" style="display: flex; justify-content: flex-end;">
                                 <div class="col s4 m4 right-align">
+                                    <a class="modal-close btn-flat" href="#!"> Cancelar </a>
+                                </div>
+
+                                <div class="col s4 m4 right-align">
                                     <button class="btn waves-effect waves-light" type="submit" name="salvar">Salvar
                                         <i class="material-icons right">save</i>
                                     </button>
                                 </div>
+
                             </div>
                         </form>
                     </div>

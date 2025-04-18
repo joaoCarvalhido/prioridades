@@ -6,7 +6,7 @@
     <div th:fragment="modalEdicao">
         <div id="modal-edicao" class="modal modal-prioridade">
             <div class="modal-content">
-                <h5>Editando Prioridade: <span id="prioridadeNome"></span></h5>
+                <h5 id="prioridadeNome" class="titulo-modal"></h5>
                 <br>
 
                 <!-- formulario edicao de prioridade -->
@@ -41,7 +41,7 @@
 
                                 <div class="col s12">
                                     <div class="input-field col s12">
-                                        <select class="icons" id="icone-edicao" name="icone">
+                                        <select id="icone-edicao" name="icone">
                                             <option value="home" selected data-icon="https://fonts.gstatic.com/s/i/materialicons/home/v10/24px.svg">Home</option>
                                             <option value="person" data-icon="https://fonts.gstatic.com/s/i/materialicons/home/v10/24px.svg">Home</option>
                                             <option value="settings" data-icon="https://fonts.gstatic.com/s/i/materialicons/person/v10/24px.svg">Perfil</option>
@@ -54,6 +54,10 @@
                             </div>
 
                             <div class="row" style="display: flex; justify-content: flex-end;">
+                                <div class="col s4 m4 right-align">
+                                    <a class="modal-close btn-flat" href="#!"> Cancelar </a>
+                                </div>
+
                                 <div class="col s4 m4 right-align">
                                     <button class="btn waves-effect waves-light" type="submit" name="salvar">Salvar
                                         <i class="material-icons right">save</i>

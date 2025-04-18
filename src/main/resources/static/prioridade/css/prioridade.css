@@ -36,6 +36,11 @@
     font-weight: bold;
 }
 
+.titulo-modal {
+    color: #00D8FF;
+    font-weight: bold;
+}
+
 .div-botao-adicionar {
     margin-top: 3em;
 }
@@ -51,9 +56,14 @@
     background-color: #161B22; !important;
 }
 
+@media only screen and (max-width: 600px) {
+  #modal-confirma-delecao.modal {
+    width: 80% !important;
+  }
+
 .progress {
   height: 8px;
-  background-color: #0d1117; /* tom bem escuro pra combinar com #161B22 */
+  background-color: #0d1117;
   border-radius: 14px;
   overflow: hidden;
   margin: 10px 0;
@@ -71,3 +81,20 @@
   font-weight: bold;
   font-size: 10px;
 }
+
+input::placeholder {
+  color: #9ca3af;
+  opacity: 0.6;
+  font-style: italic;
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 600px) {
+    .linha-box .col.s8 {
+        padding-left: 28px;
+    }
+
+    .linha-box .col.s2:last-child .div-botao-deletar a {
+        margin-left: -12px;
+      }
+ }
