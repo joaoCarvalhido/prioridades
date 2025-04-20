@@ -25,14 +25,16 @@
 
                                 <div class="col s12">
                                     <div class="input-field col s12">
-                                        <input th:field="*{valorObjetivo}" placeholder="100" id="valor-objetivo-cadastro" type="text" class="validate">
+                                        <input th:field="*{valorObjetivo}" placeholder="100" id="valor-objetivo-cadastro" type="text" class="validate money-mask">
+                                        <input th:field="*{valorObjetivo}" type="hidden" id="valor-objetivo-real" name="valor-objetivo">
                                         <label for="valor-objetivo-cadastro">Valor objetivo:</label>
                                     </div>
                                 </div>
 
                                 <div class="col s12">
                                     <div class="input-field col s12">
-                                        <input th:field="*{valorInvestido}" placeholder="10" id="valor-investido-cadastro" type="text" class="validate">
+                                        <input th:field="*{valorInvestido}" placeholder="10" id="valor-investido-cadastro" type="text" class="validate money-mask">
+                                        <input th:field="*{valorInvestido}" type="hidden" id="valor-investido-real" name="valorInvestido">
                                         <label for="valor-investido-cadastro">Valor já investido:</label>
                                     </div>
                                 </div>

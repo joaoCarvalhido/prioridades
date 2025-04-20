@@ -18,8 +18,8 @@
                     <span class="card-title center">Cadastro</span>
                     <form th:action="@{cadastro}" th:object="${usuarioDTO}" method="post">
                         <div class="input-field">
-                            <input th:field="*{email}" type="email" id="email" required>
-                            <label for="email">E-mail</label>
+                            <input th:field="*{email}" type="text" id="email" required>
+                            <label for="email">E-mail ou Username</label>
                         </div>
                         <div class="input-field">
                             <input th:field="*{senha}" type="password" id="senha" required>

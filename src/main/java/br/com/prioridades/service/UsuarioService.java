@@ -9,4 +9,5 @@ public interface UsuarioService extends UserDetailsService {
     void validaSenha(UsuarioDTO usuarioLogado, UsuarioDTO usuarioValidado) throws IllegalAccessException;
     void criptografarSenha(UsuarioDTO usuarioDTO);
     UsuarioDTO buscarUsuarioLogado();
+    void autenticaUsuario(UsuarioDTO usuarioDTO);
 }

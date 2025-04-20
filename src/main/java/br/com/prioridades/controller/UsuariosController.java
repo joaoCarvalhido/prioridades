@@ -3,6 +3,10 @@ package br.com.prioridades.controller;
 import br.com.prioridades.DTO.UsuarioDTO;
 import br.com.prioridades.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -34,6 +38,8 @@ public class UsuariosController {
     @PostMapping("/cadastro")
     public ModelAndView salvarUsuario(@ModelAttribute UsuarioDTO usuarioDTO) {
         this.usuarioService.salvar(usuarioDTO);
+        this.usuarioService.autenticaUsuario(usuarioDTO);
+        System.out.println("Usuário autenticado: " + SecurityContextHolder.getContext().getAuthentication().getName());
         return new ModelAndView("redirect:/usuarios/login");
     }
 }

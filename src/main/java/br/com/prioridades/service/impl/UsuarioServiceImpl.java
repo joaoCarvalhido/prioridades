@@ -7,9 +7,12 @@ import br.com.prioridades.repository.UsuarioRepository;
 import br.com.prioridades.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -63,8 +66,17 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
+    public void autenticaUsuario(UsuarioDTO usuarioDTO) {
+        UserDetails userDetails = this.loadUserByUsername(usuarioDTO.getEmail());
+        Authentication auth = new UsernamePasswordAuthenticationToken(userDetails, usuarioDTO.getSenha(), userDetails.getAuthorities());
+        SecurityContextHolder.getContext().setAuthentication(auth);
+    }
+
+    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UsuarioDTO usuario = this.buscarPorEmail(username);
         return new User(usuario.getEmail(), usuario.getSenha(), new ArrayList<>());
     }
+
+
 }

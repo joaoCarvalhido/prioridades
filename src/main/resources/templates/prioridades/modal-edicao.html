@@ -27,14 +27,16 @@
 
                                 <div class="col s12">
                                     <div class="input-field col s12">
-                                        <input id="valor-objetivo-edicao" type="text" name="valorObjetivo">
+                                        <input id="valor-objetivo-edicao" type="text" class="money-mask">
+                                        <input type="hidden" id="valor-objetivo-real" name="valorObjetivo">
                                         <label for="valor-objetivo-edicao">Valor objetivo:</label>
                                     </div>
                                 </div>
 
                                 <div class="col s12">
                                     <div class="input-field col s12">
-                                        <input id="valor-investido-edicao" type="text" name="valorInvestido">
+                                        <input id="valor-investido-edicao" type="text" class="money-mask">
+                                        <input type="hidden" id="valor-investido-real" name="valorInvestido">
                                         <label for="valor-investido-edicao">Valor já investido:</label>
                                     </div>
                                 </div>
@@ -54,11 +56,22 @@
                             </div>
 
                             <div class="row" style="display: flex; justify-content: flex-end;">
-                                <div class="col s4 m4 right-align">
+                                <div class="col s2">
+                                    <div class="switch">
+                                        <label>
+                                            Off
+                                            <input type="checkbox">
+                                            <span class="lever"></span>
+                                            On
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col s2 right-align">
                                     <a class="modal-close btn-flat" href="#!"> Cancelar </a>
                                 </div>
 
-                                <div class="col s4 m4 right-align">
+                                <div class="col s2 right-align">
                                     <button class="btn waves-effect waves-light" type="submit" name="salvar">Salvar
                                         <i class="material-icons right">save</i>
                                     </button>
