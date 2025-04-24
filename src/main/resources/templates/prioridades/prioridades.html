@@ -32,8 +32,7 @@
 
                 <div class="row linha-box"
                      th:each="topPrioridade : ${listasPrioridades.topPrioridades}"
-                     th:attr="onclick=|abrirModalEdicao('${topPrioridade.idPrioridade}', '${topPrioridade.nome}',
-                        '${topPrioridade.valorObjetivo}', '${topPrioridade.valorInvestido}', '${topPrioridade.icone}')|">
+                     th:attr="onclick=|abrirModalEdicao('${topPrioridade.idPrioridade}', '${topPrioridade.nome}', '${topPrioridade.valorObjetivo}', '${topPrioridade.valorInvestido}', '${topPrioridade.icone}', '${topPrioridade.topPrioridade}')|">
                     <div class="col s2">
                         <div class="icone-circulo">
                             <i class="material-icons" th:text="${topPrioridade.icone}"></i>
@@ -80,7 +79,7 @@
                 <div class="row linha-box"
                      th:each="outraPrioridade : ${listasPrioridades.outrasPrioridades}"
                      th:attr="onclick=|abrirModalEdicao('${outraPrioridade.idPrioridade}', '${outraPrioridade.nome}',
-                        '${outraPrioridade.valorObjetivo}', '${outraPrioridade.valorInvestido}', '${outraPrioridade.icone}')|">
+                        '${outraPrioridade.valorObjetivo}', '${outraPrioridade.valorInvestido}', '${outraPrioridade.icone}', '${outraPrioridade.topPrioridade}')|">
                     <div class="col s2">
                         <div class="icone-circulo">
                             <i class="material-icons" th:text="${outraPrioridade.icone}"></i>

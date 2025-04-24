@@ -33,7 +33,8 @@ public class PrioridadeDTO {
     }
 
     private BigDecimal calcularProgresso(BigDecimal valorObjetivo, BigDecimal valorInvestido) {
-        if(Objects.nonNull(valorObjetivo) && Objects.nonNull(valorInvestido))
+        if(Objects.nonNull(valorObjetivo) && Objects.nonNull(valorInvestido) &&
+                BigDecimal.ZERO.compareTo(valorInvestido) <= 0 && BigDecimal.ZERO.compareTo(valorObjetivo) <= 0)
             return valorInvestido.divide(valorObjetivo, RoundingMode.FLOOR)
                     .multiply(new BigDecimal(100));
         return BigDecimal.ZERO;
@@ -51,5 +52,4 @@ public class PrioridadeDTO {
             prioridade.setUsuario(this.usuarioDTO.converteParaUsuario());
         return prioridade;
     }
-
 }

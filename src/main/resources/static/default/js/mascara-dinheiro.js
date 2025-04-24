@@ -1,5 +1,8 @@
 function aplicarMascaraDinheiro() {
   document.querySelectorAll('.money-mask').forEach(function (input) {
+    const hiddenInputId = input.getAttribute('data-hidden-target');
+    const hiddenInput = hiddenInputId ? document.getElementById(hiddenInputId) : input.nextElementSibling;
+
     const cleave = new Cleave(input, {
       numeral: true,
       numeralThousandsGroupStyle: 'thousand',
@@ -11,25 +14,18 @@ function aplicarMascaraDinheiro() {
       rawValueTrimPrefix: true
     });
 
-    let hiddenInput = input.nextElementSibling;
-    const inputName = input.getAttribute('name');
-
-    // Se houver valor inicial no input (ex: vindo do backend), aplicar máscara e sincronizar
-    if (input.value && hiddenInput) {
-      const raw = input.value
-        .replace(/\s/g, '')
-        .replace('R$', '')
-        .replace(/\./g, '')
-        .replace(',', '.');
-
-      cleave.setRawValue(raw);
-      hiddenInput.value = raw;
+    if (hiddenInput && hiddenInput.value) {
+      let numero = parseFloat(hiddenInput.value.replace(',', '.'));
+      if (!isNaN(numero)) {
+        input.value = cleave.properties.prefix + numero.toFixed(2).replace('.', ',');
+        cleave.setRawValue(numero.toFixed(2));
+      }
     }
 
-    // Atualizar o campo hidden sempre que o usuário digitar
     input.addEventListener('input', function () {
       if (hiddenInput) {
-        hiddenInput.value = cleave.getRawValue();
+        let raw = cleave.getRawValue();
+        hiddenInput.value = (parseFloat(raw.replace(',', '.')) || 0).toFixed(2);
       }
     });
   });
