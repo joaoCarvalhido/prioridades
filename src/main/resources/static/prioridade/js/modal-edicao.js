@@ -19,3 +19,9 @@ function abrirModalEdicao(idPrioridade, nome, valorObjetivo, valorInvestido, ico
 
     aplicarMascaraDinheiro();
 }
+
+function setNaoTopPrioridade() {
+    const checkbox = document.getElementById("is-top-prioridade");
+    checkbox.checked = false;
+    checkbox.value = false;
+}
