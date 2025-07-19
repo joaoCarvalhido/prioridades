@@ -10,7 +10,7 @@ import java.util.Objects;
 
 @Data
 @NoArgsConstructor
-public class PrioridadeDTO {
+public class PrioridadeDTO implements Comparable<PrioridadeDTO> {
     private Long idPrioridade;
     private String nome;
     private BigDecimal valorObjetivo;
@@ -18,8 +18,13 @@ public class PrioridadeDTO {
     private String icone;
     private int ordem;
     private UsuarioDTO usuarioDTO;
-    private boolean topPrioridade;
+    private Boolean topPrioridade;
     private BigDecimal progresso;
+
+    @Override
+    public int compareTo(PrioridadeDTO outraPrioridade) {
+        return Integer.compare(this.ordem, outraPrioridade.ordem);
+    }
 
     public PrioridadeDTO(Prioridade prioridade) {
         this.idPrioridade = prioridade.getIdPrioridade();

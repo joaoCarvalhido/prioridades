@@ -13,8 +13,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 
 @Service
 @RequiredArgsConstructor
@@ -51,14 +55,15 @@ public class PrioridadeServiceImpl implements PrioridadeService {
     private void fluxoOrdemPrioridade(PrioridadeDTO prioridadeDTO) {
         ListasPrioridadesDTO listasPrioridadesDTO = this.buscarListas();
         int ultimaOrdemPrioridade;
-        if(prioridadeDTO.isTopPrioridade()) {
+        if(nonNull(prioridadeDTO.getTopPrioridade()) && prioridadeDTO.getTopPrioridade()) {
             if(listasPrioridadesDTO.isTopPrioridadeCompleto())
                 throw new ListaTopPrioridadeCompleto();
             ultimaOrdemPrioridade = listasPrioridadesDTO.getUltimaOrdemTopPrioridade();
         } else {
             ultimaOrdemPrioridade = listasPrioridadesDTO.getUltimaOrdemOutraPrioridade();
         }
-        prioridadeDTO.setOrdem(++ultimaOrdemPrioridade);
+        if(isNull(prioridadeDTO.getIdPrioridade()))
+            prioridadeDTO.setOrdem(++ultimaOrdemPrioridade);
     }
 
     @Override
@@ -75,6 +80,7 @@ public class PrioridadeServiceImpl implements PrioridadeService {
         List<PrioridadeDTO> prioridadesDTO = new ArrayList<>();
         List<Prioridade> prioridades = this.prioridadeRepository.findByUsuario(usuarioDTO.converteParaUsuario());
         prioridades.forEach(prioridade -> prioridadesDTO.add(new PrioridadeDTO(prioridade)));
+        Collections.sort(prioridadesDTO);
         return prioridadesDTO;
     }
 }

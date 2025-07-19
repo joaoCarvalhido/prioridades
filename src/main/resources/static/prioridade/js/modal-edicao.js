@@ -1,5 +1,6 @@
-function abrirModalEdicao(idPrioridade, nome, valorObjetivo, valorInvestido, icone, topPrioridade) {
-    topPrioridade = true;
+function abrirModalEdicao(idPrioridade, nome, valorObjetivo,
+                            valorInvestido, icone, topPrioridade, ordem) {
+
     document.getElementById("prioridadeNome").textContent = nome;
     document.getElementById("prioridadeId").value = idPrioridade;
 
@@ -9,6 +10,7 @@ function abrirModalEdicao(idPrioridade, nome, valorObjetivo, valorInvestido, ico
     document.getElementById("valorObjetivoReal-edicao").value = valorObjetivo;
     document.getElementById("valorInvestidoReal-edicao").value = valorInvestido;
     document.getElementById("icone-edicao").value = icone;
+    document.getElementById("ordem-prioridade").value = ordem;
 
     document.getElementById("formEdicao").setAttribute("action", "/prioridades/edicao/" + idPrioridade);
 
@@ -18,10 +20,4 @@ function abrirModalEdicao(idPrioridade, nome, valorObjetivo, valorInvestido, ico
     modal.open();
 
     aplicarMascaraDinheiro();
-}
-
-function setNaoTopPrioridade() {
-    const checkbox = document.getElementById("is-top-prioridade");
-    checkbox.checked = false;
-    checkbox.value = false;
 }
