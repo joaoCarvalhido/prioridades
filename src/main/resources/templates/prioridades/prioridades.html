@@ -109,6 +109,10 @@
     </div>
 </div>
 
+<!-- Campos hidden para passar mensagens de erro do backend para o frontend -->
+<input type="hidden" id="mensagem-erro" th:value="${erro}" />
+<input type="hidden" id="tipo-erro" th:value="${tipoErro}" />
+
 <!-- Importando o modal -->
 <div th:replace="prioridades/modal-cadastro :: modalCadastro"></div>
 <div th:replace="prioridades/modal-edicao :: modalEdicao"></div>
@@ -116,6 +120,7 @@
 
 <!--  Scripts-->
 <script th:src="@{https://code.jquery.com/jquery-2.1.1.min.js}"></script>
+<script th:src="@{/prioridade/js/notificacoes.js}"></script>
 <script th:src="@{/materialize/js/materialize.js}"></script>
 <script th:src="@{/default/js/scripts.js}"></script>
 <script th:src="@{/prioridade/js/modal-edicao.js}"></script>
@@ -123,6 +128,13 @@
 <script th:src="@{/prioridade/js/modal-cadastro.js}"></script>
 <script th:src="@{/default/js/cleave-mascara-dinheiro.min.js}"></script>
 <script th:src="@{/default/js/mascara-dinheiro.js}"></script>
+
+<!-- Script para verificar mensagens de erro -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        verificarMensagemErro();
+    });
+</script>
 </body>
 
 

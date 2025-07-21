@@ -44,7 +44,7 @@ public class PrioridadeServiceImpl implements PrioridadeService {
     }
 
     @Override
-    public void salvar(PrioridadeDTO prioridadeDTO) {
+    public void salvar(PrioridadeDTO prioridadeDTO) throws ListaTopPrioridadeCompleto {
         UsuarioDTO usuarioLogado = this.usuarioService.buscarUsuarioLogado();
         prioridadeDTO.setUsuarioDTO(usuarioLogado);
         fluxoOrdemPrioridade(prioridadeDTO);
@@ -52,7 +52,7 @@ public class PrioridadeServiceImpl implements PrioridadeService {
         this.prioridadeRepository.save(prioridade);
     }
 
-    private void fluxoOrdemPrioridade(PrioridadeDTO prioridadeDTO) {
+    private void fluxoOrdemPrioridade(PrioridadeDTO prioridadeDTO) throws ListaTopPrioridadeCompleto {
         ListasPrioridadesDTO listasPrioridadesDTO = this.buscarListas();
         int ultimaOrdemPrioridade;
         if(nonNull(prioridadeDTO.getTopPrioridade()) && prioridadeDTO.getTopPrioridade()) {
@@ -67,7 +67,7 @@ public class PrioridadeServiceImpl implements PrioridadeService {
     }
 
     @Override
-    public void editar(PrioridadeDTO prioridadeDTO) {
+    public void editar(PrioridadeDTO prioridadeDTO) throws ListaTopPrioridadeCompleto {
         this.salvar(prioridadeDTO);
     }
 
