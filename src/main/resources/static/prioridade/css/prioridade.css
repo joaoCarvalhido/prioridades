@@ -49,6 +49,20 @@
     padding-top: 2em;
 }
 
+.div-valor-pendente {
+    padding-left: 1em;
+}
+
+.valor-pendente {
+    color: #eb8334;
+}
+
+.botao-salvar-deletar-modal {
+    font-size: 0.6rem;
+    font-weight: bold;
+    width: 100%;
+}
+
 #modal-confirma-delecao {
     width: 30%;
     height 30%; !important

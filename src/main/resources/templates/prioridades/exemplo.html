@@ -25,77 +25,38 @@
                         <h5 class="titulo-prioridade">Top 3 Prioridades</h5>
                     </div>
                     <div class="col s2 div-botao-adicionar">
-                        <a href="#modal-cadastro" class="btn-floating btn waves-effect waves-light modal-trigger"><i class="material-icons">add</i></a>
+                        <a href="#modal-cadastro" class="btn-floating btn waves-effect waves-light modal-trigger" onclick="setTopPrioridade();">
+                            <i class="material-icons">add</i></a>
                     </div>
                 </div>
 
-
-                <div class="row linha-box">
+                <div class="row linha-box"
+                     th:each="topPrioridade : ${listasPrioridades.topPrioridades}"
+                     th:attr="onclick=|abrirModalEdicao('${topPrioridade.idPrioridade}', '${topPrioridade.nome}', '${topPrioridade.valorObjetivo}',
+                        '${topPrioridade.valorInvestido}', '${topPrioridade.icone}', '${topPrioridade.topPrioridade}', '${topPrioridade.ordem}')|">
                     <div class="col s2">
                         <div class="icone-circulo">
-                            <i class="material-icons">attach_money</i>
+                            <i class="material-icons" th:text="${topPrioridade.icone}"></i>
                         </div>
                     </div>
 
                     <div class="col s8">
-                        <p>Reserva de emergência</p>
+                        <p th:text="${topPrioridade.nome}"></p>
                         <div class="progress">
-                            <div class="determinate progresso" style="width: 80%">
-                                <span>90%</span>
-                            </div>
+                            <div class="determinate progresso" th:style="'width:' + ${topPrioridade.progresso} + '%'"></div>
                         </div>
                     </div>
 
                     <div class="col s2">
                         <div class="div-botao-deletar">
-                            <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
+                            <a href="#modal-confirma-delecao" class="btn-floating btn-small waves-effect waves-light red btn modal-trigger"
+                               th:attr="onclick=|abrirModalConfirmacaoDelecao('${topPrioridade.idPrioridade}'); event.stopPropagation()|">
+                                <i class="material-icons">delete</i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="row linha-box">
-                    <div class="col s2">
-                        <div class="icone-circulo">
-                            <i class="material-icons">airplanemode_active</i>
-                        </div>
-                    </div>
-
-                    <div class="col s8">
-                        <p>Viagem Bahia</p>
-                        <div class="progress">
-                            <div class="determinate progresso" style="width: 50%"></div>
-                        </div>
-                    </div>
-
-                    <div class="col s2">
-                        <div class="div-botao-deletar">
-                            <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row linha-box">
-                    <div class="col s2">
-                        <div class="icone-circulo">
-                            <i class="material-icons">laptop</i>
-                        </div>
-                    </div>
-                    <div class="col s8">
-                        <p>Notebook</p>
-                        <div class="progress">
-                            <div class="determinate progresso" style="width: 20%">
-                                <span>90%</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col s2">
-                        <div class="div-botao-deletar">
-                            <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
-                        </div>
-                    </div>
-
-                </div>
             </div>
         </div>
     </div>
@@ -111,89 +72,70 @@
                         <h5 class="titulo-prioridade">Outras Prioridades</h5>
                     </div>
                     <div class="col s2 div-botao-adicionar">
-                        <a class="btn-floating btn waves-effect waves-light"><i class="material-icons">add</i></a>
+                        <a href="#modal-cadastro" class="btn-floating btn waves-effect waves-light modal-trigger" onclick="setNaoTopPrioridade();">
+                            <i class="material-icons">add</i></a>
                     </div>
                 </div>
 
-                <div class="row linha-box">
+                <div class="row linha-box"
+                     th:each="outraPrioridade : ${listasPrioridades.outrasPrioridades}"
+                     th:attr="onclick=|abrirModalEdicao('${outraPrioridade.idPrioridade}', '${outraPrioridade.nome}',
+                        '${outraPrioridade.valorObjetivo}', '${outraPrioridade.valorInvestido}', '${outraPrioridade.icone}', '${outraPrioridade.topPrioridade}', '${outraPrioridade.ordem}')|">
                     <div class="col s2">
                         <div class="icone-circulo">
-                            <i class="material-icons">attach_money</i>
+                            <i class="material-icons" th:text="${outraPrioridade.icone}"></i>
                         </div>
                     </div>
 
                     <div class="col s8">
-                        <p>Reserva de emergência</p>
+                        <p th:text="${outraPrioridade.nome}"></p>
                         <div class="progress">
-                            <div class="determinate progresso" style="width: 80%">
-                                <span>90%</span>
-                            </div>
+                            <div class="determinate progresso" th:style="'width:' + ${outraPrioridade.progresso} + '%'"></div>
                         </div>
                     </div>
 
                     <div class="col s2">
                         <div class="div-botao-deletar">
-                            <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
+                            <a href="#modal-confirma-delecao" class="btn-floating btn-small waves-effect waves-light red btn modal-trigger"
+                               th:attr="onclick=|abrirModalConfirmacaoDelecao('${outraPrioridade.idPrioridade}'); event.stopPropagation()|">
+                                <i class="material-icons">delete</i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="row linha-box">
-                    <div class="col s2">
-                        <div class="icone-circulo">
-                            <i class="material-icons">airplanemode_active</i>
-                        </div>
-                    </div>
-
-                    <div class="col s8">
-                        <p>Viagem Bahia</p>
-                        <div class="progress">
-                            <div class="determinate progresso" style="width: 50%"></div>
-                        </div>
-                    </div>
-
-                    <div class="col s2">
-                        <div class="div-botao-deletar">
-                            <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row linha-box">
-                    <div class="col s2">
-                        <div class="icone-circulo">
-                            <i class="material-icons">laptop</i>
-                        </div>
-                    </div>
-                    
-                    <div class="col s8">
-                        <p>Notebook</p>
-                        <div class="progress">
-                            <div class="determinate progresso" style="width: 20%">
-                                <span>90%</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col s2">
-                        <div class="div-botao-deletar">
-                            <a href="#modal-cadastro" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
-                        </div>
-                    </div>
-
-                </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Campos hidden para passar mensagens de erro do backend para o frontend -->
+<input type="hidden" id="mensagem-erro" th:value="${erro}" />
+<input type="hidden" id="tipo-erro" th:value="${tipoErro}" />
+
 <!-- Importando o modal -->
 <div th:replace="prioridades/modal-cadastro :: modalCadastro"></div>
-
-</body>
+<div th:replace="prioridades/modal-edicao :: modalEdicao"></div>
+<div th:replace="prioridades/modal-confirma-delecao :: modalConfirmaDelecao"></div>
 
 <!--  Scripts-->
 <script th:src="@{https://code.jquery.com/jquery-2.1.1.min.js}"></script>
-    <script th:src="@{/materialize/js/materialize.js}"></script>
+<script th:src="@{/prioridade/js/notificacoes.js}"></script>
+<script th:src="@{/materialize/js/materialize.js}"></script>
 <script th:src="@{/default/js/scripts.js}"></script>
+<script th:src="@{/prioridade/js/modal-edicao.js}"></script>
+<script th:src="@{/prioridade/js/modal-delecao.js}"></script>
+<script th:src="@{/prioridade/js/modal-cadastro.js}"></script>
+<script th:src="@{/default/js/cleave-mascara-dinheiro.min.js}"></script>
+<script th:src="@{/default/js/mascara-dinheiro.js}"></script>
+
+<!-- Script para verificar mensagens de erro -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        verificarMensagemErro();
+    });
+</script>
+</body>
+
+
 </html>

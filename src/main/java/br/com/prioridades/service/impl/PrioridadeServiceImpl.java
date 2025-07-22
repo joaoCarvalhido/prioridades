@@ -12,10 +12,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -82,5 +84,18 @@ public class PrioridadeServiceImpl implements PrioridadeService {
         prioridades.forEach(prioridade -> prioridadesDTO.add(new PrioridadeDTO(prioridade)));
         Collections.sort(prioridadesDTO);
         return prioridadesDTO;
+    }
+
+    @Override
+    public BigDecimal calcularValorPendente(List<PrioridadeDTO> prioridadeDTOList) {
+        BigDecimal totalObjetivos = prioridadeDTOList.stream()
+                .map(PrioridadeDTO::getValorObjetivo)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        BigDecimal totalInvestidos = prioridadeDTOList.stream()
+                .map(PrioridadeDTO::getValorInvestido)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        return totalObjetivos.subtract(totalInvestidos);
     }
 }

@@ -28,6 +28,10 @@
                         <a href="#modal-cadastro" class="btn-floating btn waves-effect waves-light modal-trigger" onclick="setTopPrioridade();">
                             <i class="material-icons">add</i></a>
                     </div>
+                    <div class="col s12 div-valor-pendente">
+                        <span>Pendente: </span>
+                        <span class="valor-pendente valor-moeda" th:data-valor="${totalPendenteTopPrioridades}"></span>
+                    </div>
                 </div>
 
                 <div class="row linha-box"
@@ -74,6 +78,10 @@
                     <div class="col s2 div-botao-adicionar">
                         <a href="#modal-cadastro" class="btn-floating btn waves-effect waves-light modal-trigger" onclick="setNaoTopPrioridade();">
                             <i class="material-icons">add</i></a>
+                    </div>
+                    <div class="col s12 div-valor-pendente">
+                        <span>Pendente: </span>
+                        <span class="valor-pendente valor-moeda" th:data-valor="${totalPendenteOutrasPrioridades}"></span>
                     </div>
                 </div>
 
@@ -128,11 +136,13 @@
 <script th:src="@{/prioridade/js/modal-cadastro.js}"></script>
 <script th:src="@{/default/js/cleave-mascara-dinheiro.min.js}"></script>
 <script th:src="@{/default/js/mascara-dinheiro.js}"></script>
+<script th:src="@{/default/js/formatacao-moeda.js}"></script>
 
 <!-- Script para verificar mensagens de erro -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         verificarMensagemErro();
+        formatarValoresMonetarios();
     });
 </script>
 </body>

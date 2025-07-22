@@ -26,6 +26,8 @@ public class PrioridadesController {
         mv.addObject("listasPrioridades", listasPrioridades);
         mv.addObject("cadastroPrioridadeDTO", new PrioridadeDTO());
 
+        mv.addObject("totalPendenteTopPrioridades", this.prioridadeService.calcularValorPendente(listasPrioridades.getTopPrioridades()));
+        mv.addObject("totalPendenteOutrasPrioridades", this.prioridadeService.calcularValorPendente(listasPrioridades.getOutrasPrioridades()));
         tratamentoErro(model, mv);
         return mv;
     }
