@@ -57,9 +57,16 @@ public class PrioridadesController {
     }
 
     @GetMapping("/exemplo")
-    public ModelAndView viewHome() {
-        ModelAndView mv = new ModelAndView("prioridades/exemplo");
+    public ModelAndView viewPrioridadesExemplo(Model model) {
+        ListasPrioridadesDTO listasPrioridades = this.prioridadeService.buscarListasUsuarioExemplo();
+
+        ModelAndView mv = new ModelAndView("prioridades/prioridades");
+        mv.addObject("listasPrioridades", listasPrioridades);
         mv.addObject("cadastroPrioridadeDTO", new PrioridadeDTO());
+
+        mv.addObject("totalPendenteTopPrioridades", this.prioridadeService.calcularValorPendente(listasPrioridades.getTopPrioridades()));
+        mv.addObject("totalPendenteOutrasPrioridades", this.prioridadeService.calcularValorPendente(listasPrioridades.getOutrasPrioridades()));
+        tratamentoErro(model, mv);
         return mv;
     }
 

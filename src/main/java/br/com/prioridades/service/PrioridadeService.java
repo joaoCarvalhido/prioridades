@@ -9,7 +9,10 @@ import java.util.List;
 
 public interface PrioridadeService {
     ListasPrioridadesDTO buscarListas();
+    ListasPrioridadesDTO buscarListasUsuarioExemplo();
+
     PrioridadeDTO buscar(Long idPrioridade);
+
     void salvar(PrioridadeDTO prioridadeDTO) throws ListaTopPrioridadeCompleto;
     void editar(PrioridadeDTO prioridadeDTO) throws ListaTopPrioridadeCompleto;
     void deletar(Long idPrioridade);

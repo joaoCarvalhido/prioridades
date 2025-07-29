@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -33,6 +32,18 @@ public class PrioridadeServiceImpl implements PrioridadeService {
     @Override
     public ListasPrioridadesDTO buscarListas() {
         UsuarioDTO usuarioDTO = this.usuarioService.buscarUsuarioLogado();
+        List<PrioridadeDTO> todasPrioridades = this.buscarTodas(usuarioDTO);
+        return new ListasPrioridadesDTO(todasPrioridades);
+    }
+
+    @Override
+    public ListasPrioridadesDTO buscarListasUsuarioExemplo() {
+        UsuarioDTO usuarioDTO = null;
+        try {
+            usuarioDTO = this.usuarioService.buscarPorEmail("exemplo@prioridades.com");
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
         List<PrioridadeDTO> todasPrioridades = this.buscarTodas(usuarioDTO);
         return new ListasPrioridadesDTO(todasPrioridades);
     }
