@@ -112,3 +112,26 @@ input::placeholder {
         margin-left: -12px;
       }
  }
+
+ /* CSS PARA DIMINUIR O TAMANHO DO SELECT DO MATERIALIZE */
+
+ /* Diminuir altura e padding do select */
+ .select-small .select-wrapper input.select-dropdown {
+     height: 2rem !important; /* Altura menor (padrão é ~3rem) */
+     line-height: 2rem !important;
+     padding: 0 0.75rem !important; /* Padding menor */
+     font-size: 0.9rem !important; /* Fonte menor */
+ }
+
+ .select-small .select-wrapper .caret {
+     top: 0.5rem !important; /* Ajustar posição da seta */
+ }
+
+ .select-small .input-field label {
+     font-size: 0.8rem !important; /* Label menor */
+ }
+
+ .select-small .input-field label.active {
+     font-size: 0.7rem !important; /* Label ativo menor */
+     transform: translateY(-14px) scale(0.8) !important; /* Ajustar posição */
+ }
