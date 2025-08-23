@@ -22,7 +22,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/usuarios/login", "/usuarios/cadastro",
-                                "/prioridades/exemplo",
+                                "/usuarios/css/**", "/usuarios/images/**",
                                 "/default/css/**", "/default/js/**",
                                 "/materialize/css/**", "/materialize/js/**",
                                 "/prioridade/css/**", "/prioridade/js/**")

@@ -1,0 +1,482 @@
+/* CSS PARA TELA DE LOGIN - NOVA PALETA DE CORES */
+
+/* Paleta de cores:
+   #0D1117 - Fundo escuro principal
+   #C9D1D9 - Texto claro
+   #00D8FF - Azul ciano (destaque)
+   #161B22 - Fundo escuro secundário
+   #eb8334 - Laranja (accent)
+*/
+
+/* Reset e configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.login-body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #0D1117 0%, #161B22 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Layout principal */
+.login-wrapper {
+    display: flex;
+    min-height: 100vh;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: #161B22;
+    box-shadow: 0 0 50px rgba(0,0,0,0.3);
+}
+
+/* Seção de preview (lado esquerdo) */
+.preview-section {
+    flex: 1;
+    background: linear-gradient(135deg, #0D1117 0%, #161B22 50%, #00D8FF 100%);
+    color: #C9D1D9;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease;
+}
+
+.preview-section.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.preview-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.05"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.05"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.05"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.05"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    pointer-events: none;
+}
+
+.preview-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 500px;
+}
+
+/* Logo e título */
+.logo-section {
+    margin-bottom: 3rem;
+}
+
+.logo-icon {
+    font-size: 4rem !important;
+    margin-bottom: 1rem;
+    display: block;
+    color: #eb8334;
+}
+
+.logo-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(45deg, #00D8FF, #eb8334);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 300;
+    color: #C9D1D9;
+}
+
+/* Área para screenshots reais */
+.preview-images {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+}
+
+.screenshot-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.screenshot-frame {
+    border-radius: 12px;
+    padding: 1px;
+    background: rgba(201, 209, 217, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 216, 255, 0.1);
+}
+
+.desktop-screenshot {
+    width: 280px;
+    height: 180px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #0D1117;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgba(0, 216, 255, 0.3);
+}
+
+.mobile-screenshot {
+    width: 120px;
+    height: 200px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #0D1117;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgba(0, 216, 255, 0.3);
+}
+
+.screenshot-placeholder {
+    color: #00D8FF;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.screenshot-placeholder i {
+    font-size: 2rem !important;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Imagens reais quando adicionadas */
+.screenshot-frame img {
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.device-label {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    font-weight: 300;
+    color: #C9D1D9;
+}
+
+/* Lista de recursos */
+.features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    background: rgba(201, 209, 217, 0.05);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 216, 255, 0.1);
+}
+
+.feature-item i {
+    color: #eb8334;
+    font-size: 1.5rem !important;
+}
+
+.feature-item span {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #C9D1D9;
+}
+
+/* Seção do formulário (lado direito) */
+.form-section {
+    flex: 1;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0D1117;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s ease;
+}
+
+.form-section.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.form-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Cabeçalho do formulário */
+.form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #C9D1D9;
+    margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+    font-size: 1rem;
+    color: #C9D1D9;
+    opacity: 0.7;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+/* Formulário */
+.login-form {
+    margin-bottom: 2rem;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-field {
+    position: relative;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #161B22;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #161B22;
+    transition: all 0.3s ease;
+    color: #C9D1D9;
+}
+
+.input-field input:focus {
+    outline: none;
+    border-color: #00D8FF;
+    box-shadow: 0 0 0 3px rgba(0, 216, 255, 0.1);
+    background: #0D1117;
+}
+
+.input-field label {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    color: #C9D1D9;
+    opacity: 0.6;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    background: #161B22;
+    padding: 0 0.25rem;
+}
+
+.input-field input:focus + label,
+.input-field input:not(:placeholder-shown) + label {
+    top: -0.5rem;
+    left: 0.75rem;
+    font-size: 0.8rem;
+    color: #00D8FF;
+    font-weight: 500;
+    background: #0D1117;
+}
+
+.helper-text {
+    display: block;
+    font-size: 0.8rem;
+    color: #C9D1D9 !important;
+    opacity: 0.6;
+    margin-top: 0.5rem;
+    margin-left: 0.25rem;
+}
+
+/* Opções do formulário */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #C9D1D9;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.remember-me input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    accent-color: #00D8FF;
+}
+
+.forgot-password {
+    color: #00D8FF;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #eb8334;
+}
+
+/* Botão de login */
+.btn-login {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #00D8FF 0%, #eb8334 100%);
+    color: #0D1117;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 14px rgba(0, 216, 255, 0.3);
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 216, 255, 0.4);
+    background: linear-gradient(135deg, #eb8334 0%, #00D8FF 100%);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+/* Rodapé do formulário */
+.form-footer {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #161B22;
+}
+
+.form-footer p {
+    color: #C9D1D9;
+    opacity: 0.7;
+    margin-bottom: 1rem;
+}
+
+.link-cadastro {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #00D8FF;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #00D8FF;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.link-cadastro:hover {
+    background: #00D8FF;
+    color: #0D1117;
+    transform: translateY(-1px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .login-wrapper {
+        flex-direction: column;
+    }
+    
+    .preview-section {
+        min-height: 40vh;
+        padding: 2rem 1rem;
+    }
+    
+    .preview-images {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .desktop-screenshot {
+        width: 240px;
+        height: 150px;
+    }
+    
+    .mobile-screenshot {
+        width: 100px;
+        height: 170px;
+    }
+    
+    .form-section {
+        padding: 2rem 1rem;
+    }
+    
+    .form-title {
+        font-size: 1.5rem;
+    }
+    
+    .logo-text {
+        font-size: 2rem;
+    }
+    
+    .features-list {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .preview-section {
+        min-height: 30vh;
+        padding: 1rem;
+    }
+    
+    .form-section {
+        padding: 1rem;
+    }
+    
+    .form-options {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .desktop-screenshot {
+        width: 200px;
+        height: 120px;
+    }
+    
+    .mobile-screenshot {
+        width: 80px;
+        height: 140px;
+    }
+}
+
