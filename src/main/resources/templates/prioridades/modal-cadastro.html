@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+    <!-- Modal Structure -->
+    <div th:fragment="modalCadastro">
+        <div id="modal-cadastro" class="modal modal-prioridade">
+            <div class="modal-content">
+                <h5 class="titulo-modal">Cadastro de Prioridade</h5>
+                <br>
+
+                <!-- formulario cadastro de prioridade -->
+                <div class="container">
+                    <div class="section">
+                        <!--   form Section   -->
+                        <form th:action="@{/prioridades}" th:object="${cadastroPrioridadeDTO}" method="post">
+                            <div class="row">
+                                <!-- Campo hidden para controlar se é top prioridade -->
+                                <input type="hidden" th:field="*{topPrioridade}" id="top-prioridade" value="false">
+
+                                <div class="col s12">
+                                    <div class="input-field col s12">
+                                        <input th:field="*{nome}" placeholder="Reserva de Emergência" id="nome-cadastro" type="text" class="validate">
+                                        <label for="nome-cadastro">Nome:</label>
+                                    </div>
+                                </div>
+
+                                <div class="col s12">
+                                    <div class="input-field col s12">
+                                        <input placeholder="100" id="valor-objetivo-cadastro" type="text" class="validate money-mask" data-placeholder="10.000,00">
+                                        <input th:field="*{valorObjetivo}" type="hidden" id="valor-objetivo-real" name="valor-objetivo">
+                                        <label for="valor-objetivo-cadastro">Valor objetivo:</label>
+                                    </div>
+                                </div>
+
+                                <div class="col s12">
+                                    <div class="input-field col s12">
+                                        <input placeholder="10" id="valor-investido-cadastro" type="text" class="validate money-mask">
+                                        <input th:field="*{valorInvestido}" type="hidden" id="valor-investido-real" name="valorInvestido">
+                                        <label for="valor-investido-cadastro">Valor já investido:</label>
+                                    </div>
+                                </div>
+
+                                <div class="col s12 select-small">
+                                    <div class="input-field col s12">
+                                        <select th:field="*{icone}">
+                                            <option value="" disabled selected>Selecione</option>
+                                            <option value="account_balance" th:data-icon="@{/default/icons/account_balance.png}">Banco</option>
+                                            <option value="account_circle" th:data-icon="@{/default/icons/account_circle.png}">Conta</option>
+                                            <option value="checklist" th:data-icon="@{/default/icons/checklist.png}">Checklist</option>
+                                            <option value="child_friendly" th:data-icon="@{/default/icons/child_friendly.png}">Carrinho bebê</option>
+                                            <option value="coronavirus" th:data-icon="@{/default/icons/coronavirus.png}">Vírus</option>
+                                            <option value="credit_card" th:data-icon="@{/default/icons/credit_card.png}">Cartão Crédito</option>
+                                            <option value="date_range" th:data-icon="@{/default/icons/date_range.png}">Calendário</option>
+                                            <option value="description" th:data-icon="@{/default/icons/description.png}">Arquivo</option>
+                                            <option value="directions_car" th:data-icon="@{/default/icons/directions_car.png}">Carro</option>
+                                            <option value="done" th:data-icon="@{/default/icons/done.png}">Feito</option>
+                                            <option value="family_restroom" th:data-icon="@{/default/icons/family_restroom.png}">Família</option>
+                                            <option value="favorite" th:data-icon="@{/default/icons/favorite.png}">Coração</option>
+                                            <option value="fitness_center" th:data-icon="@{/default/icons/fitness_center.png}">Academia</option>
+                                            <option value="flight" th:data-icon="@{/default/icons/flight.png}">Avião</option>
+                                            <option value="home" th:data-icon="@{/default/icons/home.png}">Casa</option>
+                                            <option value="moped" th:data-icon="@{/default/icons/moped.png}">Moto</option>
+                                            <option value="music_note" th:data-icon="@{/default/icons/music_note.png}">Música</option>
+                                            <option value="paid" th:data-icon="@{/default/icons/paid.png}">Dinheiro</option>
+                                            <option value="pedal_bike" th:data-icon="@{/default/icons/pedal_bike.png}">Bike</option>
+                                            <option value="pets" th:data-icon="@{/default/icons/pets.png}">Pet</option>
+                                            <option value="phone_iphone" th:data-icon="@{/default/icons/phone_iphone.png}">Celular</option>
+                                            <option value="savings" th:data-icon="@{/default/icons/savings.png}">Cofrinho</option>
+                                            <option value="settings" th:data-icon="@{/default/icons/settings.png}">Configuração</option>
+                                            <option value="shopping_cart" th:data-icon="@{/default/icons/shopping_cart.png}">Compras</option>
+                                            <option value="trending_up" th:data-icon="@{/default/icons/trending_up.png}">Investimento</option>
+                                            <option value="paid" th:data-icon="@{/default/icons/paid.png}">Dinheiro</option>
+                                            <option value="work" th:data-icon="@{/default/icons/work.png}">Trabalho</option>
+                                        </select>
+                                        <label>Icone</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col s6 m4 l4">
+                                    <button type="button" class="modal-close btn-small black lighten-1 red-text botao-salvar-deletar-modal">Cancelar</button>
+                                </div>
+                                <div class="col s6 m4 l4">
+                                    <button class="btn-small waves-effect waves-light botao-salvar-deletar-modal" type="submit" name="salvar">Salvar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</html>

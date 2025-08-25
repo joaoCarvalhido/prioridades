@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<!-- Modal Structure -->
+<div th:fragment="modalEdicao">
+    <div id="modal-edicao" class="modal modal-prioridade">
+        <div class="modal-content">
+            <h5 id="prioridadeNome" class="titulo-modal"></h5>
+            <br>
+
+            <!-- formulario edicao de prioridade -->
+            <div class="container">
+                <div class="section">
+                    <form id="formEdicao" method="post">
+                        <!--   form Section   -->
+                        <div class="row">
+                            <input type="hidden" id="prioridadeId" name="id">
+                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                            <input type="hidden" id="ordem-prioridade" name="ordem">
+
+                            <div class="col s12">
+                                <div class="input-field col s12">
+                                    <input id="nome-edicao" type="text" name="nome">
+                                    <label for="nome-edicao">Nome:</label>
+                                </div>
+                            </div>
+
+                            <div class="col s12">
+                                <div class="input-field col s12">
+                                    <input id="valor-objetivo-edicao" type="text" class="money-mask" data-hidden-target="valorObjetivoReal-edicao">
+                                    <input type="hidden" id="valorObjetivoReal-edicao" name="valorObjetivo">
+                                    <label for="valor-objetivo-edicao">Valor objetivo:</label>
+                                </div>
+                            </div>
+
+                            <div class="col s12">
+                                <div class="input-field col s12">
+                                    <input id="valor-investido-edicao" type="text" class="money-mask" data-hidden-target="valorInvestidoReal-edicao">
+                                    <input type="hidden" id="valorInvestidoReal-edicao" name="valorInvestido">
+                                    <label for="valor-investido-edicao">Valor já investido:</label>
+                                </div>
+                            </div>
+
+                            <div class="col s12 select-small">
+                                <div class="input-field col s12">
+                                    <select id="icone-edicao" name="icone">
+                                        <option value="" disabled selected></option>
+                                        <option value="account_balance" th:data-icon="@{/default/icons/account_balance.png}">Banco</option>
+                                        <option value="account_circle" th:data-icon="@{/default/icons/account_circle.png}">Conta</option>
+                                        <option value="checklist" th:data-icon="@{/default/icons/checklist.png}">Checklist</option>
+                                        <option value="child_friendly" th:data-icon="@{/default/icons/child_friendly.png}">Carrinho bebê</option>
+                                        <option value="coronavirus" th:data-icon="@{/default/icons/coronavirus.png}">Vírus</option>
+                                        <option value="credit_card" th:data-icon="@{/default/icons/credit_card.png}">Cartão Crédito</option>
+                                        <option value="date_range" th:data-icon="@{/default/icons/date_range.png}">Calendário</option>
+                                        <option value="description" th:data-icon="@{/default/icons/description.png}">Arquivo</option>
+                                        <option value="directions_car" th:data-icon="@{/default/icons/directions_car.png}">Carro</option>
+                                        <option value="done" th:data-icon="@{/default/icons/done.png}">Feito</option>
+                                        <option value="family_restroom" th:data-icon="@{/default/icons/family_restroom.png}">Família</option>
+                                        <option value="favorite" th:data-icon="@{/default/icons/favorite.png}">Coração</option>
+                                        <option value="fitness_center" th:data-icon="@{/default/icons/fitness_center.png}">Academia</option>
+                                        <option value="flight" th:data-icon="@{/default/icons/flight.png}">Avião</option>
+                                        <option value="home" th:data-icon="@{/default/icons/home.png}">Casa</option>
+                                        <option value="moped" th:data-icon="@{/default/icons/moped.png}">Moto</option>
+                                        <option value="music_note" th:data-icon="@{/default/icons/music_note.png}">Música</option>
+                                        <option value="paid" th:data-icon="@{/default/icons/paid.png}">Dinheiro</option>
+                                        <option value="pedal_bike" th:data-icon="@{/default/icons/pedal_bike.png}">Bike</option>
+                                        <option value="pets" th:data-icon="@{/default/icons/pets.png}">Pet</option>
+                                        <option value="phone_iphone" th:data-icon="@{/default/icons/phone_iphone.png}">Celular</option>
+                                        <option value="savings" th:data-icon="@{/default/icons/savings.png}">Cofrinho</option>
+                                        <option value="settings" th:data-icon="@{/default/icons/settings.png}">Configuração</option>
+                                        <option value="shopping_cart" th:data-icon="@{/default/icons/shopping_cart.png}">Compras</option>
+                                        <option value="trending_up" th:data-icon="@{/default/icons/trending_up.png}">Investimento</option>
+                                        <option value="paid" th:data-icon="@{/default/icons/paid.png}">Dinheiro</option>
+                                        <option value="work" th:data-icon="@{/default/icons/work.png}">Trabalho</option>
+                                    </select>
+                                    <label>Icone</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s6 m4 l4">
+                                <button type="button" class="modal-close btn-small black lighten-1 red-text botao-salvar-deletar-modal">Cancelar</button>
+                            </div>
+                            <div class="col s6 m4 l4">
+                                <button class="btn-small waves-effect waves-light botao-salvar-deletar-modal" type="submit" name="salvar">Salvar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

@@ -1,0 +1,137 @@
+.box {
+    background-color: #161B22;
+    border-radius: 10px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 80vw;
+    max-width: 600px;
+}
+
+.linha-box {
+    border: 1px solid #0D1117;
+    margin: 10px 40px;
+    border-radius: 10px;
+}
+
+.linha-box:hover {
+    background-color: #0D1117;
+    cursor: pointer;
+}
+
+.icone-circulo {
+    background-color: #0D1117;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.8em;
+}
+
+.titulo-prioridade {
+    color: #00D8FF;
+    padding-top: 30px;
+    font-weight: bold;
+}
+
+.titulo-modal {
+    color: #00D8FF;
+    font-weight: bold;
+}
+
+.div-botao-adicionar {
+    margin-top: 3em;
+}
+
+.div-botao-deletar {
+    padding-top: 2em;
+}
+
+.div-valor-pendente {
+    padding-left: 1em;
+}
+
+.valor-pendente {
+    color: #eb8334;
+}
+
+.botao-salvar-deletar-modal {
+    font-size: 0.6rem;
+    font-weight: bold;
+    width: 100%;
+}
+
+#modal-confirma-delecao {
+    width: 30%;
+    height 30%; !important
+    color: #C9D1D9; !important;
+    background-color: #161B22; !important;
+}
+
+@media only screen and (max-width: 600px) {
+  #modal-confirma-delecao.modal {
+    width: 80% !important;
+  }
+
+.progress {
+  height: 8px;
+  background-color: #0d1117;
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 10px 0;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.6);
+}
+
+.determinate.progresso {
+  background: linear-gradient(90deg, #00D8AA, #00D8FF;); /* efeito gradiente moderno */
+  height: 100%;
+  border-radius: 14px 0 0 14px; /* arredonda só o lado esquerdo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #161B22;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+input::placeholder {
+  color: #9ca3af;
+  opacity: 0.6;
+  font-style: italic;
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 600px) {
+    .linha-box .col.s8 {
+        padding-left: 28px;
+    }
+
+    .linha-box .col.s2:last-child .div-botao-deletar a {
+        margin-left: -12px;
+      }
+ }
+
+ /* CSS PARA DIMINUIR O TAMANHO DO SELECT DO MATERIALIZE */
+
+ /* Diminuir altura e padding do select */
+ .select-small .select-wrapper input.select-dropdown {
+     height: 2rem !important; /* Altura menor (padrão é ~3rem) */
+     line-height: 2rem !important;
+     padding: 0 0.75rem !important; /* Padding menor */
+     font-size: 0.9rem !important; /* Fonte menor */
+ }
+
+ .select-small .select-wrapper .caret {
+     top: 0.5rem !important; /* Ajustar posição da seta */
+ }
+
+ .select-small .input-field label {
+     font-size: 0.8rem !important; /* Label menor */
+ }
+
+ .select-small .input-field label.active {
+     font-size: 0.7rem !important; /* Label ativo menor */
+     transform: translateY(-14px) scale(0.8) !important; /* Ajustar posição */
+ }

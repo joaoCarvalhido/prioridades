@@ -9,42 +9,23 @@ body {
     justify-content: center;
     align-items: center;
 }
-.box {
-    background-color: #161B22;
-    border-radius: 10px;
-    padding-bottom: 30px;
-    padding-left: 30px;
-    padding-right: 30px;
+
+.modal-prioridade {
+    background-color: #161B22; !important;
+    color: #C9D1D9; !important;
+    height: 80%; !important;
+    max-height: 80% !important;
 }
 
-.linha-box {
-    border: 1px solid #0D1117;
-    margin: 10px 40px;
-    border-radius: 10px;
+input {
+    color: #C9D1D9; !important;
+    background-color: #161B22; !important;
 }
 
-.icone-circulo {
-    background-color: #0D1117;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0.8em;
-    margin-right: 10em;
+label {
+    font-size: 1.2rem !important;
 }
 
-.titulo-prioridade {
-    color: #00D8FF;
-    padding-top: 30px;
-    font-weight: bold;
-}
-
-.div-botao-adicionar {
-    margin-top: 3em;
-}
-
-.div-botao-deletar {
-    padding-top: 2em;
+.dropdown-content {
+    background-color: #161B22; !important;
 }

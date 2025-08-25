@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistema de Prioridades</title>
+    <link th:href="@{/materialize/css/materialize.css}" rel="stylesheet" />
+    <link th:href="@{/default/css/default.css}" rel="stylesheet" />
+    <link th:href="@{/usuarios/css/login.css}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link th:href="@{/default/icons/favicon.png}" rel="icon" type="image/x-icon">
+</head>
+<body class="login-body">
+
+<div class="login-wrapper">
+    <!-- Lado Esquerdo: Previews do Sistema -->
+    <div class="preview-section">
+        <div class="preview-content">
+            <div class="logo-section">
+                <i class="material-icons logo-icon">checklist</i>
+                <h2 class="logo-text">Prioridades</h2>
+                <p class="logo-subtitle">Organize suas metas financeiras</p>
+            </div>
+            
+            <div class="preview-images">
+                <div class="screenshot-container">
+                    <div class="screenshot-frame">
+                        <div class="desktop-screenshot">
+                            <!-- SUBSTITUA ESTE CONTEÚDO PELA SUA IMAGEM -->
+                            <img th:src="@{/usuarios/images/desktop.jpg}" alt="Versão Desktop">
+                        </div>
+                    </div>
+                    <p class="device-label">Versão Desktop</p>
+                </div>
+                
+                <div class="screenshot-container">
+                    <div class="screenshot-frame">
+                        <div class="mobile-screenshot">
+                            <img th:src="@{/usuarios/images/mobile.jpeg}" alt="Versão Mobile">
+                        </div>
+                    </div>
+                    <p class="device-label">Versão Mobile</p>
+                </div>
+            </div>
+            
+            <div class="features-list">
+                <div class="feature-item">
+                    <i class="material-icons">check_circle</i>
+                    <span>Organize suas metas financeiras</span>
+                </div>
+                <div class="feature-item">
+                    <i class="material-icons">trending_up</i>
+                    <span>Acompanhe seu progresso</span>
+                </div>
+                <div class="feature-item">
+                    <i class="material-icons">phone_android</i>
+                    <span>Acesse de qualquer dispositivo</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Lado Direito: Formulário de Login -->
+    <div class="form-section">
+        <div class="form-container">
+            <div class="form-header">
+                <h1 class="form-title">Bem-vindo de volta!</h1>
+                <p class="form-subtitle">Entre na sua conta para continuar organizando suas prioridades</p>
+            </div>
+            
+            <form th:action="@{/usuarios/processa-login}" method="post" class="login-form">
+                <div class="input-group">
+                    <div class="input-field">
+                        <input type="text" id="username" name="username" required>
+                        <label for="username">Usuário</label>
+                        <span class="helper-text">Email, telefone ou nome de usuário</span>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <div class="input-field">
+                        <input type="password" id="password" name="password" required>
+                        <label for="password">Senha</label>
+                    </div>
+                </div>
+                
+                <button class="btn-login" type="submit">
+                    <span>Entrar</span>
+                    <i class="material-icons">arrow_forward</i>
+                </button>
+            </form>
+            
+            <div class="form-footer">
+                <p>Ainda não tem uma conta?</p>
+                <a href="cadastro" class="link-cadastro">
+                    <span>Criar conta gratuita</span>
+                    <i class="material-icons">person_add</i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/materialize/js/materialize.js}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Inicializar MaterializeCSS
+        M.updateTextFields();
+        
+        // Animação de entrada
+        const formSection = document.querySelector('.form-section');
+        const previewSection = document.querySelector('.preview-section');
+        
+        setTimeout(() => {
+            formSection.classList.add('animate-in');
+            previewSection.classList.add('animate-in');
+        }, 100);
+    });
+</script>
+</body>
+</html>
+

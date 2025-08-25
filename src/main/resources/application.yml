@@ -1,0 +1,24 @@
+spring:
+  server:
+    address: 0.0.0.0
+    port: 8080
+
+  application:
+    name: prioridades
+
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    mode: HTML
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/meubanco
+    username: eusouadmin
+    password: cadeiraPreta00@
+    driverClassName: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: POSTGRESQL
+    show-sql: true
+    database-plataform: org.hibernate.dialect.PostgreSQLDialect
