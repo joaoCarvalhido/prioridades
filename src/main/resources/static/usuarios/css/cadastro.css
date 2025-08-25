@@ -1,4 +1,4 @@
-/* CSS PARA TELA DE CADASTRO - NOVA PALETA DE CORES */
+/* CSS PARA TELA DE CADASTRO - MELHORADO PARA MOBILE */
 
 /* Paleta de cores:
    #0D1117 - Fundo escuro principal
@@ -133,7 +133,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px dashed rgba(235, 131, 52, 0.3);
 }
 
 .mobile-screenshot {
@@ -145,28 +144,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px dashed rgba(235, 131, 52, 0.3);
-}
-
-.screenshot-placeholder {
-    color: #eb8334;
-    text-align: center;
-    font-size: 0.9rem;
-    opacity: 0.7;
-}
-
-.screenshot-placeholder i {
-    font-size: 2rem !important;
-    margin-bottom: 0.2rem;
-    display: block;
 }
 
 /* Imagens reais quando adicionadas */
 .screenshot-frame img {
-    width: 110%;
-    height: 110%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
 .device-label {
@@ -220,6 +205,49 @@
     color: #C9D1D9;
 }
 
+/* INDICADOR DE ROLAGEM PARA MOBILE */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #C9D1D9;
+    z-index: 10;
+    transition: all 0.3s ease;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.scroll-text {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+    font-weight: 500;
+}
+
+.scroll-arrow {
+    animation: bounce 2s infinite;
+}
+
+.scroll-arrow i {
+    font-size: 2rem !important;
+    color: #eb8334;
+    transition: transform 0.5s ease;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
 /* Seção do formulário (lado direito) - Diferenciada para cadastro */
 .form-section.cadastro-form-section {
     flex: 1;
@@ -241,6 +269,52 @@
 .form-container {
     width: 100%;
     max-width: 400px;
+}
+
+/* INDICADOR DE PROGRESSO MOBILE */
+.mobile-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.progress-step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #161B22;
+    color: #C9D1D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 2px solid #161B22;
+}
+
+.progress-step.active {
+    background: #eb8334;
+    border-color: #eb8334;
+    color: #0D1117;
+}
+
+.progress-line {
+    width: 40px;
+    height: 2px;
+    background: #161B22;
+}
+
+.progress-text {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    color: #C9D1D9;
+    opacity: 0.7;
+    white-space: nowrap;
 }
 
 /* Cabeçalho do formulário */
@@ -327,38 +401,18 @@
     margin-left: 0.25rem;
 }
 
-/* Opções do formulário */
-.form-options {
+/* CTA SECTION MELHORADA */
+.cta-section {
+    text-align: center;
     margin-bottom: 2rem;
 }
 
-.terms-checkbox {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    color: #C9D1D9;
-    opacity: 0.8;
-    cursor: pointer;
+.cta-subtitle {
+    margin-top: 0.5rem;
     font-size: 0.9rem;
-    line-height: 1.4;
-}
-
-.terms-checkbox input[type="checkbox"] {
-    width: auto;
-    margin: 0;
-    margin-top: 0.1rem;
-    accent-color: #eb8334;
-}
-
-.link-terms {
     color: #00D8FF;
-    text-decoration: none;
+    opacity: 0.8;
     font-weight: 500;
-}
-
-.link-terms:hover {
-    text-decoration: underline;
-    color: #eb8334;
 }
 
 /* Botão de cadastro */
@@ -442,21 +496,84 @@
     font-size: 1rem !important;
 }
 
+/* BOTÃO FLUTUANTE PARA MOBILE */
+.floating-cta {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.fab-cadastro {
+    background: linear-gradient(135deg, #eb8334 0%, #00D8FF 100%);
+    color: #0D1117;
+    border: none;
+    border-radius: 50px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(235, 131, 52, 0.4);
+    transition: all 0.3s ease;
+}
+
+.fab-cadastro:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(235, 131, 52, 0.5);
+}
+
+.fab-cadastro i {
+    font-size: 1.2rem !important;
+}
+
+/* BARRA DE PROGRESSO DA PÁGINA */
+.page-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(22, 27, 34, 0.5);
+    z-index: 1001;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #eb8334 0%, #00D8FF 100%);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* CLASSES UTILITÁRIAS */
+.mobile-only {
+    display: none;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
+    .mobile-only {
+        display: block;
+    }
+    
     .cadastro-wrapper {
         flex-direction: column;
     }
     
     .preview-section {
-        min-height: 40vh;
+        min-height: 60vh;
         padding: 2rem 1rem;
+        position: relative;
     }
     
     .preview-images {
         flex-direction: column;
         gap: 1rem;
         align-items: center;
+        margin-bottom: 2rem;
     }
     
     .desktop-screenshot {
@@ -471,6 +588,7 @@
     
     .form-section {
         padding: 2rem 1rem;
+        min-height: 100vh;
     }
     
     .form-title {
@@ -484,20 +602,33 @@
     .benefits-list {
         display: none;
     }
+    
+    /* Ajustes específicos para mobile */
+    .mobile-progress {
+        position: relative;
+    }
+    
+    .floating-cta {
+        display: block;
+    }
+    
+    .page-progress {
+        display: block;
+    }
+    
+    .scroll-indicator {
+        display: block;
+    }
 }
 
 @media (max-width: 480px) {
     .preview-section {
-        min-height: 30vh;
+        min-height: 50vh;
         padding: 1rem;
     }
     
     .form-section {
         padding: 1rem;
-    }
-    
-    .terms-checkbox {
-        font-size: 0.8rem;
     }
     
     .desktop-screenshot {
@@ -508,6 +639,52 @@
     .mobile-screenshot {
         width: 80px;
         height: 140px;
+    }
+    
+    .floating-cta {
+        bottom: 1rem;
+        right: 1rem;
+    }
+    
+    .fab-cadastro {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.8rem;
+    }
+    
+    .scroll-text {
+        font-size: 0.8rem;
+    }
+}
+
+/* Animações adicionais para melhor UX */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(235, 131, 52, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(235, 131, 52, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(235, 131, 52, 0);
+    }
+}
+
+.fab-cadastro {
+    animation: pulse 2s infinite;
+}
+
+/* Melhorias de acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-arrow {
+        animation: none;
+    }
+    
+    .fab-cadastro {
+        animation: none;
+    }
+    
+    * {
+        transition: none !important;
     }
 }
 

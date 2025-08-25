@@ -480,3 +480,94 @@
     }
 }
 
+/* BARRA DE PROGRESSO DA PÁGINA */
+.page-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(22, 27, 34, 0.5);
+    z-index: 1001;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #eb8334 0%, #00D8FF 100%);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* CLASSES UTILITÁRIAS */
+.mobile-only {
+    display: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block;
+    }
+
+    .cadastro-wrapper {
+        flex-direction: column;
+    }
+
+    .preview-section {
+        min-height: 60vh;
+        padding: 2rem 1rem;
+        position: relative;
+    }
+
+    .preview-images {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .desktop-screenshot {
+        width: 240px;
+        height: 150px;
+    }
+
+    .mobile-screenshot {
+        width: 100px;
+        height: 170px;
+    }
+
+    .form-section {
+        padding: 2rem 1rem;
+        min-height: 100vh;
+    }
+
+    .form-title {
+        font-size: 1.5rem;
+    }
+
+    .logo-text {
+        font-size: 2rem;
+    }
+
+    .benefits-list {
+        display: none;
+    }
+
+    /* Ajustes específicos para mobile */
+    .mobile-progress {
+        position: relative;
+    }
+
+    .floating-cta {
+        display: block;
+    }
+
+    .page-progress {
+        display: block;
+    }
+
+    .scroll-indicator {
+        display: block;
+    }
+}
+

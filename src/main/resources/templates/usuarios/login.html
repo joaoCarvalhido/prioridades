@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Sistema de Prioridades</title>
+    <title>Login - Prioridades Financeiras</title>
     <link th:href="@{/materialize/css/materialize.css}" rel="stylesheet" />
     <link th:href="@{/default/css/default.css}" rel="stylesheet" />
     <link th:href="@{/usuarios/css/login.css}" rel="stylesheet" />
@@ -30,7 +30,6 @@
                             <img th:src="@{/usuarios/images/desktop.jpg}" alt="Versão Desktop">
                         </div>
                     </div>
-                    <p class="device-label">Versão Desktop</p>
                 </div>
                 
                 <div class="screenshot-container">
@@ -39,7 +38,6 @@
                             <img th:src="@{/usuarios/images/mobile.jpeg}" alt="Versão Mobile">
                         </div>
                     </div>
-                    <p class="device-label">Versão Mobile</p>
                 </div>
             </div>
             
@@ -56,6 +54,14 @@
                     <i class="material-icons">phone_android</i>
                     <span>Acesse de qualquer dispositivo</span>
                 </div>
+            </div>
+        </div>
+
+        <!-- Indicador de rolagem para mobile -->
+        <div class="scroll-indicator mobile-only">
+            <div class="scroll-text">Role para baixo logar na sua conta</div>
+            <div class="scroll-arrow">
+                <i class="material-icons">keyboard_arrow_down</i>
             </div>
         </div>
     </div>
@@ -101,22 +107,21 @@
     </div>
 </div>
 
+<!-- Botão flutuante de cadastro para mobile -->
+<div class="floating-cta mobile-only">
+    <button class="fab-cadastro" onclick="scrollToForm()">
+        <i class="material-icons">person_add</i>
+        <span>Cadastrar</span>
+    </button>
+</div>
+
+<!-- Indicador de progresso da página -->
+<div class="page-progress mobile-only">
+    <div class="progress-bar" id="progressBar"></div>
+</div>
+
 <script th:src="@{/materialize/js/materialize.js}"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Inicializar MaterializeCSS
-        M.updateTextFields();
-        
-        // Animação de entrada
-        const formSection = document.querySelector('.form-section');
-        const previewSection = document.querySelector('.preview-section');
-        
-        setTimeout(() => {
-            formSection.classList.add('animate-in');
-            previewSection.classList.add('animate-in');
-        }, 100);
-    });
-</script>
+<script th:src="@{/usuarios/js/cadastro.js}"></script>
 </body>
 </html>
 
