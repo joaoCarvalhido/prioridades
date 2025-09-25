@@ -163,8 +163,8 @@
 
 /* Imagens reais quando adicionadas */
 .screenshot-frame img {
-    width: 110%;
-    height: 110%;
+    width: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 4px;
 }
@@ -566,8 +566,35 @@
         display: block;
     }
 
+    /* INDICADOR DE ROLAGEM PARA MOBILE */
     .scroll-indicator {
-        display: block;
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        color: #C9D1D9;
+        z-index: 10;
+        transition: all 0.3s ease;
+        padding-top: 10px;
+        margin-top: 10px;
+    }
+
+    .scroll-text {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+        opacity: 0.8;
+        font-weight: 500;
+    }
+
+    .scroll-arrow {
+        animation: bounce 2s infinite;
+    }
+
+    .scroll-arrow i {
+        font-size: 2rem !important;
+        color: #eb8334;
+        transition: transform 0.5s ease;
     }
 }
 
