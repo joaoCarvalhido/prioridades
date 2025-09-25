@@ -12,6 +12,8 @@ spec:
       labels:
         app: springboot-app
     spec:
+      imagePullSecrets:
+        - name: artifact-registry
       containers:
         - name: springboot-app
           image: us-east5-docker.pkg.dev/hallowed-tea-470200-d9/meu-repo/springboot-app:v1
