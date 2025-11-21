@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: springboot-app
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: springboot-app
@@ -16,7 +16,7 @@ spec:
         - name: artifact-registry
       containers:
         - name: springboot-app
-          image: us-east5-docker.pkg.dev/hallowed-tea-470200-d9/meu-repo/springboot-app:v1
+          image: us-east5-docker.pkg.dev/hallowed-tea-470200-d9/meu-repo/springboot-app:v3.1
           ports:
             - containerPort: 8080
           env:

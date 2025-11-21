@@ -13,3 +13,10 @@ spring:
         database: POSTGRESQL
         show-sql: true
         database-plataform: org.hibernate.dialect.PostgreSQLDialect
+server:
+  servlet:
+    session:
+      cookie:
+        secure: true
+        same-site: None
+  forward-headers-strategy: framework
