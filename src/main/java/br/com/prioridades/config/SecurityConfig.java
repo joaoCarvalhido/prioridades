@@ -22,7 +22,8 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/usuarios/login", "/usuarios/cadastro",
-                                "/usuarios/**", "/default/**", "/materialize/**", "/prioridade/**")
+                                "/usuarios/**", "/default/**", "/materialize/**", "/prioridade/**",
+                                "/usuarios/cadastro", "/prioridades")
                         .permitAll()
                         .anyRequest().authenticated())
 

@@ -29,8 +29,8 @@ public class PrioridadeDTO implements Comparable<PrioridadeDTO> {
     public PrioridadeDTO(Prioridade prioridade) {
         this.idPrioridade = prioridade.getIdPrioridade();
         this.nome = prioridade.getNome();
-        this.valorObjetivo = prioridade.getValorObjetivo();
-        this.valorInvestido = prioridade.getValorInvestido();
+        this.valorObjetivo = trataBigDecimalNuloComoZero(prioridade.getValorObjetivo());
+        this.valorInvestido = trataBigDecimalNuloComoZero(prioridade.getValorInvestido());
         this.icone = prioridade.getIcone();
         this.ordem = prioridade.getOrdem();
         this.usuarioDTO = new UsuarioDTO(prioridade.getUsuario());
@@ -49,12 +49,16 @@ public class PrioridadeDTO implements Comparable<PrioridadeDTO> {
         Prioridade prioridade = new Prioridade();
         prioridade.setIdPrioridade(this.idPrioridade);
         prioridade.setNome(this.nome);
-        prioridade.setValorObjetivo(this.valorObjetivo);
-        prioridade.setValorInvestido(this.valorInvestido);
+        prioridade.setValorObjetivo(trataBigDecimalNuloComoZero(this.valorObjetivo));
+        prioridade.setValorInvestido(trataBigDecimalNuloComoZero(this.valorInvestido));
         prioridade.setIcone(this.icone);
         prioridade.setOrdem(this.ordem);
         if(Objects.nonNull(this.usuarioDTO))
             prioridade.setUsuario(this.usuarioDTO.converteParaUsuario());
         return prioridade;
+    }
+
+    private BigDecimal trataBigDecimalNuloComoZero(BigDecimal bigdecimal) {
+        return (Objects.isNull(bigdecimal)) ? BigDecimal.ZERO : bigdecimal;
     }
 }

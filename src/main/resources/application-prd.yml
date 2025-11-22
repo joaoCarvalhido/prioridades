@@ -19,4 +19,4 @@ server:
       cookie:
         secure: true
         same-site: None
-  forward-headers-strategy: framework
+  forward-headers-strategy: native
