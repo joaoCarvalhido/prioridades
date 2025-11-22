@@ -5,9 +5,12 @@ metadata:
   namespace: springboot-app
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/use-forwarded-headers: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: "/"
 spec:
   ingressClassName: nginx
+
   rules:
     - host: www.prioridadesfinanceiras.com.br
       http:
@@ -18,8 +21,21 @@ spec:
               service:
                 name: springboot-service
                 port:
-                  number: 8080
+                  number: 80
+
+    - host: prioridadesfinanceiras.com.br
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: springboot-service
+                port:
+                  number: 80
+
   tls:
     - hosts:
         - www.prioridadesfinanceiras.com.br
+        - prioridadesfinanceiras.com.br
       secretName: meu-sistema-tls
