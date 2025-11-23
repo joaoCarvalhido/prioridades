@@ -38,10 +38,8 @@ public class PrioridadeDTO implements Comparable<PrioridadeDTO> {
     }
 
     private BigDecimal calcularProgresso(BigDecimal valorObjetivo, BigDecimal valorInvestido) {
-        if(Objects.nonNull(valorObjetivo) && Objects.nonNull(valorInvestido) &&
-                BigDecimal.ZERO.compareTo(valorInvestido) <= 0 && BigDecimal.ZERO.compareTo(valorObjetivo) <= 0)
-            return valorInvestido.divide(valorObjetivo, RoundingMode.FLOOR)
-                    .multiply(new BigDecimal(100));
+        if(validaValoresCalculaProgresso(valorObjetivo, valorInvestido))
+            return valorInvestido.divide(valorObjetivo, RoundingMode.FLOOR).multiply(new BigDecimal(100));
         return BigDecimal.ZERO;
     }
 
@@ -60,5 +58,13 @@ public class PrioridadeDTO implements Comparable<PrioridadeDTO> {
 
     private BigDecimal trataBigDecimalNuloComoZero(BigDecimal bigdecimal) {
         return (Objects.isNull(bigdecimal)) ? BigDecimal.ZERO : bigdecimal;
+    }
+
+    private Boolean isBigDecimalMaiorQueZero(BigDecimal bigDecimal) {
+        return Objects.nonNull(bigDecimal) && bigDecimal.compareTo(BigDecimal.ZERO) > 0;
+    }
+
+    private Boolean validaValoresCalculaProgresso(BigDecimal valorObjetivo, BigDecimal valorInvestido ) {
+        return isBigDecimalMaiorQueZero(valorObjetivo) && isBigDecimalMaiorQueZero(valorInvestido);
     }
 }
